@@ -1,0 +1,674 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#050607" />
+  <title>My Approach — How I Work</title>
+  <style>
+    :root {
+      color-scheme: dark;
+      --bg: #050607;
+      --text: #f0f0ef;
+      --muted: #999ba2;
+      --dim: #666a70;
+      --line: rgba(238,241,241,.13);
+      --line-soft: rgba(238,241,241,.075);
+      --accent: #68A6FF;
+      --nav-h: 60px;
+      --content: 1090px;
+      --ease: cubic-bezier(.2,.75,.25,1);
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; background: var(--bg); }
+    body {
+      margin: 0;
+      overflow-x: hidden;
+      background: radial-gradient(ellipse at 53% 55%,rgba(27,35,52,.12),transparent 48%),var(--bg);
+      color: var(--text);
+      font-family: Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+    }
+    button,a { font: inherit; }
+    a { color: inherit; text-decoration: none; }
+    ::selection { color: #07101c; background: var(--accent); }
+
+    .site-nav {
+      position: sticky; z-index: 20; top: 0; height: var(--nav-h);
+      display: flex; align-items: center; justify-content: center;
+      border-top: 2px solid rgba(96,154,255,.72);
+      border-bottom: 1px solid var(--line);
+      background: rgba(5,6,7,.88); backdrop-filter: blur(14px);
+    }
+    .nav-links { display: flex; align-items: center; gap: clamp(24px,3vw,38px); height: 100%; }
+    .nav-links a { position: relative; display: grid; height: 100%; place-items: center; color: #85878d; font-size: 13px; letter-spacing: .015em; transition: color .25s ease; }
+    .nav-links a:hover,.nav-links a[aria-current="page"] { color: var(--text); }
+    .nav-links a[aria-current="page"]::after { position: absolute; right: 0; bottom: 12px; left: 0; height: 1px; background: var(--accent); content: ""; opacity: .9; }
+
+    .approach { position: relative; min-height: 100vh; overflow: clip; isolation: isolate; }
+    .approach::before {
+      position: absolute; z-index: -1; inset: 0;
+      background-image: linear-gradient(to right,rgba(255,255,255,.018) 1px,transparent 1px),linear-gradient(to bottom,rgba(255,255,255,.018) 1px,transparent 1px);
+      background-size: 96px 96px; content: "";
+      mask-image: linear-gradient(to bottom,transparent 1%,#000 18%,#000 81%,transparent 100%);
+      pointer-events: none;
+    }
+    .intro,.journey-pin,.afterword-inner { width: min(var(--content),calc(100% - 64px)); margin-inline: auto; }
+    .intro { padding: clamp(76px,9vw,112px) 0 42px; }
+    .eyebrow { display: flex; align-items: center; gap: 10px; color: #a3a4aa; font-size: 12px; font-weight: 500; letter-spacing: .27em; text-transform: uppercase; }
+    .eyebrow::before { width: 15px; height: 1px; background: var(--accent); content: ""; opacity: .68; }
+    .intro-row { display: grid; grid-template-columns: 1.1fr .9fr; align-items: start; gap: 50px; margin-top: 8px; }
+    h1 { margin: 0; font-size: clamp(38px,5.2vw,52px); font-weight: 650; letter-spacing: -.065em; line-height: 1.05; }
+    .intro-copy { max-width: 400px; margin: 5px 0 0 auto; color: var(--muted); font-size: 14px; line-height: 1.8; }
+    .intro-rule { height: 1px; margin-top: 53px; background: var(--line); }
+
+    .journey { position: relative; height: 500svh; isolation: isolate; }
+    .journey-pin {
+      position: sticky; top: var(--nav-h); display: grid;
+      height: calc(100svh - var(--nav-h)); min-height: 0;
+      grid-template-columns: minmax(245px,.74fr) minmax(0,1.26fr);
+      align-items: center; gap: clamp(34px,5vw,72px); padding-block: 34px 44px;
+    }
+    .journey-pin::before {
+      position: absolute; z-index: -1; inset: 0 calc((min(var(--content),100vw - 64px) - 100vw) / 2);
+      background: none;
+      content: ""; pointer-events: none;
+    }
+    .ambient-lines { position: absolute; z-index: -1; top: 37%; left: 50%; width: 100vw; height: 38%; transform: translateX(-50%); pointer-events: none; }
+    .ambient-lines path { fill: none; stroke: rgba(222,232,229,.08); stroke-width: 1; }
+    .ambient-lines circle { fill: var(--accent); opacity: .34; }
+
+    .step-copy { position: relative; z-index: 3; padding-bottom: 8px; transition: opacity .22s ease,transform .35s var(--ease); }
+    .step-copy.is-changing { opacity: .38; transform: translateY(5px); }
+    .step-kicker { display: flex; align-items: center; gap: 10px; color: #d7d9d9; font-size: 12px; font-weight: 650; letter-spacing: .12em; }
+    .step-kicker .current { color: var(--accent); font-variant-numeric: tabular-nums; }
+    .step-kicker .slash { color: #62656a; }
+    .step-kicker .phase { margin-left: auto; color: #696c72; font-size: 9px; letter-spacing: .19em; }
+    .step-title { margin: 17px 0 11px; font-size: clamp(32px,4.1vw,45px); font-weight: 620; letter-spacing: -.065em; line-height: 1.04; }
+    .step-description { max-width: 325px; min-height: 76px; margin: 0; color: var(--muted); font-size: 15px; line-height: 1.72; }
+    .progress-row { display: flex; align-items: center; gap: 16px; margin-top: 27px; }
+    .progress-label { flex: 0 0 auto; color: #c7c9c9; font-size: 11px; font-weight: 650; letter-spacing: .05em; font-variant-numeric: tabular-nums; }
+    .progress-line { position: relative; flex: 1; height: 1px; background: rgba(255,255,255,.22); }
+    .progress-fill { position: absolute; inset: 0 auto 0 0; width: 0; background: var(--accent); box-shadow: 0 0 11px rgba(96,154,255,.35); }
+    .progress-dots { display: flex; align-items: center; gap: 7px; }
+    .progress-dot { position: relative; display: grid; width: 16px; height: 24px; place-items: center; padding: 0; border: 0; background: transparent; cursor: pointer; }
+    .progress-dot::before { width: 8px; height: 8px; border: 1px solid rgba(255,255,255,.17); border-radius: 50%; background: #292b2f; content: ""; transition: background .3s ease,border-color .3s ease,transform .3s var(--ease),box-shadow .3s ease; }
+    .progress-dot:hover::before { border-color: rgba(96,154,255,.55); transform: scale(1.2); }
+    .progress-dot[aria-current="step"]::before { border-color: var(--text); background: var(--text); box-shadow: 0 0 14px rgba(255,255,255,.22); transform: scale(1.12); }
+    .scroll-cue { display: flex; align-items: center; gap: 10px; margin-top: 49px; color: #696c72; font-size: 9px; letter-spacing: .18em; text-transform: uppercase; }
+    .scroll-cue svg { width: 15px; height: 15px; color: var(--accent); animation: nudge 1.8s ease-in-out infinite; }
+    @keyframes nudge { 0%,100% { transform: translateY(-2px); opacity: .45; } 50% { transform: translateY(3px); opacity: .95; } }
+
+    /* Open 3D world: no browser window, card, or boxed scene. */
+    .scene-panel { position: relative; z-index: 2; min-width: 0; perspective: 1200px; perspective-origin: 52% 43%; }
+    .scene-caption { display: flex; align-items: center; justify-content: space-between; margin: 0 4px 10px; color: #72777a; font-size: 9px; letter-spacing: .19em; text-transform: uppercase; }
+    .scene-caption .caption-state { display: flex; align-items: center; gap: 8px; color: #aeb4b0; }
+    .caption-state i { width: 5px; height: 5px; border-radius: 50%; background: var(--accent); box-shadow: 0 0 11px rgba(96,154,255,.5); }
+    .scene-viewport {
+      position: relative; height: clamp(300px,56svh,500px); overflow: hidden;
+      background: transparent;
+      perspective: 1150px; transform-style: preserve-3d; perspective-origin: 50% 43%;
+      mask-image: linear-gradient(90deg,transparent,#000 5%,#000 95%,transparent);
+    }
+    .scene-viewport::before,.scene-viewport::after { display: none; content: none; }
+    .world-track { position: absolute; z-index: 1; top: 0; left: 0; display: flex; width: 500%; height: 100%; transform-style: preserve-3d; will-change: transform; }
+    .world-route { position: absolute; z-index: 0; inset: 0; width: 100%; height: 100%; overflow: visible; pointer-events: none; }
+    .world-route .route-halo { fill: none; stroke: rgba(96,154,255,.13); stroke-width: 7; filter: blur(4px); }
+    .world-route .route-line { fill: none; stroke: rgba(96,154,255,.48); stroke-width: 1.15; stroke-dasharray: 3 5; }
+    .world-route .route-stem { fill: none; stroke: rgba(96,154,255,.21); stroke-width: 1; stroke-dasharray: 2 5; }
+    .world-route .route-node { fill: #111722; stroke: rgba(96,154,255,.56); stroke-width: 1; }
+    .world-route .route-core { fill: var(--accent); opacity: .8; }
+    .station { position: relative; flex: 0 0 20%; height: 100%; overflow: visible; transform-style: preserve-3d; }
+    .station::before { display: none; content: none; }
+    .station::after { position: absolute; bottom: 16%; left: 50%; width: 1px; height: 23%; background: linear-gradient(transparent,rgba(96,154,255,.22),transparent); content: ""; }
+    .station-inner { position: absolute; inset: 4% 0 16%; transform: scale(var(--canvas-scale,1)); transform-origin: 50% 48%; transform-style: preserve-3d; }
+    .station-label { position: absolute; top: 8%; left: 50%; color: #7c8580; font-size: 8px; letter-spacing: .2em; white-space: nowrap; transform: translateX(-50%); }
+    .station-label b { color: var(--accent); font-weight: 500; }
+
+    /* 01 — familiar research symbol: a 3D magnifier finding the brief. */
+    .discovery-world { position: absolute; inset: 0; transform-style: preserve-3d; }
+    .magnifier { position: absolute; top: 40%; left: 50%; width: 190px; height: 190px; transform: translate(-50%,-50%) translateZ(30px); transform-style: preserve-3d; filter: drop-shadow(12px 24px 20px rgba(0,0,0,.35)); }
+    .magnifier-glass { position: absolute; top: 4px; left: 17px; display: grid; width: 112px; height: 112px; place-items: center; border: 5px solid rgba(107,169,255,.69); border-right-color: rgba(107,169,255,.37); border-bottom-color: rgba(107,169,255,.48); border-radius: 50%; background: radial-gradient(circle at 32% 26%,rgba(142,184,255,.19),rgba(87,121,194,.08) 38%,rgba(7,10,19,.78) 78%); box-shadow: inset 0 0 26px rgba(96,154,255,.13),0 0 30px rgba(96,154,255,.12); transform: rotateX(13deg) rotateY(-13deg) translateZ(42px); }
+    .magnifier-glass::before { position: absolute; top: 15px; left: 20px; width: 27px; height: 11px; border-radius: 50%; background: rgba(206,222,255,.25); content: ""; filter: blur(5px); transform: rotate(-35deg); }
+    .magnifier-glass strong { color: var(--accent); font-size: 36px; font-weight: 400; text-shadow: 0 0 22px rgba(96,154,255,.38); }
+    .magnifier-handle { position: absolute; top: 94px; left: 103px; width: 25px; height: 86px; border: 1px solid rgba(173,198,244,.32); border-radius: 16px; background: linear-gradient(90deg,#202939,#7183a6 35%,#1a2130 72%,#0d121d); box-shadow: inset 2px 0 4px rgba(255,255,255,.12),7px 12px 20px rgba(0,0,0,.48); transform: rotate(-41deg) translateZ(18px); transform-origin: 50% 8px; }
+    .magnifier-collar { position: absolute; top: 89px; left: 91px; width: 35px; height: 17px; border: 1px solid rgba(96,154,255,.48); border-radius: 9px; background: linear-gradient(#354a71,#131b29); transform: rotate(-41deg) translateZ(30px); }
+    .signal-word { position: absolute; color: #d2d9d3; font-size: 9px; letter-spacing: .18em; white-space: nowrap; }
+    .signal-word::after { display: block; width: 25px; height: 1px; margin-top: 7px; background: rgba(96,154,255,.43); content: ""; }
+    .signal-goal { top: 19%; left: 12%; transform: translateZ(35px); }
+    .signal-people { top: 24%; right: 10%; transform: translateZ(65px); }
+    .signal-scope { bottom: 18%; left: 13%; transform: translateZ(54px); }
+    .signal-need { right: 12%; bottom: 14%; transform: translateZ(28px); }
+    .station[data-active="true"] .magnifier-glass { animation: lens-focus 3.5s ease-in-out infinite; }
+    @keyframes lens-focus { 50% { box-shadow: inset 0 0 34px rgba(96,154,255,.22),0 0 45px rgba(96,154,255,.24); } }
+
+    /* 02 — a recognizable sitemap: one home node, then the page structure. */
+    .plan-world { position: absolute; inset: 0; transform-style: preserve-3d; }
+    .sitemap { position: absolute; top: 43%; left: 50%; width: min(360px,90%); height: 250px; overflow: visible; transform: translate(-50%,-50%) rotateX(8deg) rotateY(-14deg) translateZ(30px); filter: drop-shadow(12px 17px 14px rgba(0,0,0,.32)); }
+    .sitemap path { fill: none; stroke: rgba(96,154,255,.63); stroke-width: 1.4; stroke-dasharray: 3 3; }
+    .sitemap circle { fill: #101713; stroke: rgba(96,154,255,.8); stroke-width: 1.4; }
+    .sitemap circle.root-node { fill: rgba(96,154,255,.18); stroke: var(--accent); stroke-width: 2; }
+    .sitemap text { fill: #e0e7e1; font-family: Inter,ui-sans-serif,system-ui,sans-serif; font-size: 11px; font-weight: 600; letter-spacing: 1.5px; text-anchor: middle; }
+    .sitemap .sub-label { fill: #89968d; font-size: 9px; font-weight: 400; letter-spacing: 1px; }
+    .plan-caption { position: absolute; bottom: 15%; left: 50%; color: #98a69c; font-size: 8px; letter-spacing: .2em; white-space: nowrap; transform: translateX(-50%) translateZ(56px); }
+
+    /* 03 — code brackets plus distinct, assembled site components. */
+    .build-world { position: absolute; inset: 0; transform-style: preserve-3d; }
+    .build-assembly { position: absolute; top: 45%; left: 53%; width: 245px; height: 210px; transform: translate(-50%,-50%) rotateX(-8deg) rotateY(-22deg); transform-style: preserve-3d; }
+    .site-module { position: absolute; display: grid; place-items: center; border: 1px solid rgba(107,167,248,.56); background: linear-gradient(135deg,rgba(96,154,255,.18),rgba(96,154,255,.035)); box-shadow: 8px 14px 25px rgba(0,0,0,.42),inset 0 1px 0 rgba(255,255,255,.1); color: #e0e8e1; font-size: 7px; letter-spacing: .16em; transform-style: preserve-3d; }
+    .module-header { top: 13px; left: 25px; width: 200px; height: 22px; transform: translateZ(36px) rotateX(3deg); }
+    .module-hero { top: 48px; left: 24px; width: 202px; height: 75px; transform: translateZ(58px) rotateX(2deg); }
+    .module-hero::before { position: absolute; top: 19px; left: 14px; width: 87px; height: 5px; background: rgba(205,221,255,.64); box-shadow: 0 13px 0 rgba(205,221,255,.24); content: ""; }
+    .module-hero::after { position: absolute; right: 12px; width: 50px; height: 45px; border: 1px solid rgba(96,154,255,.34); background: rgba(96,154,255,.08); content: ""; transform: translateZ(13px); }
+    .module-grid { top: 137px; left: 25px; display: flex; gap: 8px; border: 0; background: transparent; box-shadow: none; transform: translateZ(24px); }
+    .module-grid i { display: block; width: 59px; height: 38px; border: 1px solid rgba(96,154,255,.45); background: linear-gradient(145deg,rgba(96,154,255,.12),rgba(96,154,255,.02)); box-shadow: 5px 7px 15px rgba(0,0,0,.34); }
+    .code-glyph { position: absolute; top: 22%; left: 9%; color: var(--accent); font: 500 44px/1 ui-monospace,SFMono-Regular,Menlo,monospace; text-shadow: 0 0 25px rgba(96,154,255,.25); transform: translateZ(89px) rotateY(12deg); }
+    .code-caption { position: absolute; top: 34%; left: 9%; color: #a7b1a9; font-size: 7px; letter-spacing: .16em; transform: translateZ(89px) rotateY(12deg); }
+    .component-axis { position: absolute; top: 61%; right: 7%; color: #a8b4aa; font-size: 7px; letter-spacing: .12em; transform: translateZ(72px) rotateY(-16deg); }
+    .station[data-active="true"] .module-header { animation: module-lock .72s var(--ease) both; }
+    .station[data-active="true"] .module-hero { animation: module-lock .82s .08s var(--ease) both; }
+    .station[data-active="true"] .module-grid { animation: module-lock .9s .16s var(--ease) both; }
+    @keyframes module-lock { from { opacity: .4; translate: 0 -13px; } to { opacity: 1; translate: 0 0; } }
+
+    /* 04 — a clear performance instrument, with accessibility and SEO checks. */
+    .optimize-world { position: absolute; inset: 0; transform-style: preserve-3d; }
+    .gauge { position: absolute; top: 44%; left: 50%; width: 230px; height: 190px; transform: translate(-50%,-50%) rotateY(-12deg) rotateX(5deg) translateZ(45px); filter: drop-shadow(10px 17px 18px rgba(0,0,0,.38)); }
+    .gauge svg { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; }
+    .gauge .arc-bg { fill: none; stroke: rgba(255,255,255,.12); stroke-width: 11; stroke-linecap: round; }
+    .gauge .arc-fill { fill: none; stroke: var(--accent); stroke-width: 11; stroke-linecap: round; stroke-dasharray: 225 260; filter: drop-shadow(0 0 7px rgba(96,154,255,.45)); }
+    .gauge .tick { stroke: rgba(169,196,243,.53); stroke-width: 1.5; }
+    .gauge .needle { stroke: #e6efff; stroke-width: 2; stroke-linecap: round; transform-origin: 120px 145px; transform: rotate(49deg); }
+    .gauge .hub { fill: var(--accent); stroke: #18241b; stroke-width: 3; }
+    .gauge-value { position: absolute; top: 80%; left: 50%; color: #f0f5f0; font-size: 44px; font-weight: 540; letter-spacing: -.08em; text-align: center; transform: translate(-50%,-50%) translateZ(12px); }
+    .gauge-value small { display: block; margin-top: -2px; color: #9ba69e; font-size: 18px; letter-spacing: .18em; }
+    .quality-mark { position: absolute; display: flex; align-items: center; gap: 8px; color: #c1cbc3; font-size: 8px; letter-spacing: .13em; white-space: nowrap; transform-style: preserve-3d; }
+    .quality-mark::before { display: grid; width: 18px; height: 18px; place-items: center; border: 1px solid rgba(96,154,255,.43); border-radius: 50%; color: var(--accent); content: "✓"; font-size: 9px; }
+    .quality-speed { top: 21%; left: 9%; transform: translateZ(62px); }
+    .quality-a11y { top: 34%; right: 5%; transform: translateZ(88px); }
+    .quality-seo { right: 14%; bottom: 17%; transform: translateZ(47px); }
+    .quality-result { position: absolute; bottom: 14%; left: 10%; color: var(--accent); font-size: 8px; letter-spacing: .16em; transform: translateZ(68px); }
+    .station[data-active="true"] .gauge .needle { animation: gauge-check .85s var(--ease) both; }
+    @keyframes gauge-check { from { transform: rotate(-44deg); } to { transform: rotate(49deg); } }
+
+    /* 05 — a cloud deploy and a live globe, rather than an abstract portal. */
+    .launch-world { position: absolute; inset: 0; transform-style: preserve-3d; }
+    .deploy-cloud { position: absolute; top: 13%; left: 50%; width: 205px; height: 142px; transform: translateX(-50%) rotateY(-10deg) translateZ(74px); filter: drop-shadow(9px 15px 19px rgba(0,0,0,.38)); }
+    .deploy-cloud path { fill: rgba(96,154,255,.075); stroke: rgba(96,154,255,.79); stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+    .deploy-cloud .upload-arrow { fill: none; stroke: #e9f1ff; stroke-width: 2.5; }
+    .live-globe { position: absolute; top: 52%; left: 50%; width: 82px; height: 82px; border: 1px solid rgba(96,154,255,.64); border-radius: 50%; background: radial-gradient(circle at 34% 27%,rgba(141,184,255,.24),rgba(70,103,190,.2) 35%,rgba(6,9,18,.92) 75%); box-shadow: inset -13px -12px 20px rgba(0,0,0,.55),0 0 39px rgba(96,154,255,.21); transform: translate(-50%,-50%) translateZ(56px); }
+    .live-globe::before,.live-globe::after { position: absolute; inset: 0 22px; border: 1px solid rgba(96,154,255,.43); border-radius: 50%; content: ""; }
+    .live-globe::after { inset: 19px 0; border-right: 0; border-left: 0; }
+    .globe-ring { position: absolute; top: 52%; left: 50%; width: 144px; height: 48px; border: 1px solid rgba(96,154,255,.39); border-radius: 50%; transform: translate(-50%,-50%) rotateX(68deg) translateZ(70px); }
+    .live-status { position: absolute; top: 51%; right: 13%; display: flex; align-items: center; gap: 7px; color: var(--accent); font-size: 8px; letter-spacing: .18em; transform: translateZ(90px); }
+    .live-status i { width: 6px; height: 6px; border-radius: 50%; background: var(--accent); box-shadow: 0 0 14px rgba(96,154,255,.8); }
+    .deploy-flow { position: absolute; right: 0; bottom: 13%; left: 0; display: flex; align-items: center; justify-content: center; gap: 12px; color: #abb6ad; font-size: 8px; letter-spacing: .18em; transform: translateZ(78px); }
+    .deploy-flow i { width: 25px; height: 1px; background: linear-gradient(90deg,rgba(96,154,255,.15),var(--accent)); }
+    .station[data-active="true"] .live-globe { animation: globe-glow 3.2s ease-in-out infinite; }
+    @keyframes globe-glow { 50% { box-shadow: inset -13px -12px 20px rgba(0,0,0,.48),0 0 56px rgba(96,154,255,.35); } }
+
+    .afterword { position: relative; border-top: 1px solid var(--line); background: rgba(255,255,255,.012); }
+    .afterword-inner { display: flex; min-height: 155px; align-items: center; justify-content: space-between; gap: 24px; }
+    .afterword-label { color: #81848a; font-size: 10px; letter-spacing: .2em; text-transform: uppercase; }
+    .afterword-link { display: flex; align-items: center; gap: 14px; color: var(--text); font-size: 13px; }
+    .afterword-link span { display: grid; width: 32px; height: 32px; place-items: center; border: 1px solid var(--line); border-radius: 50%; color: var(--accent); transition: background .25s ease,color .25s ease,transform .25s ease; }
+    .afterword-link:hover span { background: var(--accent); color: #07101c; transform: translateX(3px); }
+
+    @media (max-width: 760px) {
+      :root { --nav-h: 55px; }
+      .nav-links { gap: clamp(19px,6vw,28px); }
+      .nav-links a { font-size: 12px; }
+      .intro,.journey-pin,.afterword-inner { width: min(100% - 38px,560px); }
+      .intro { padding: 58px 0 27px; }
+      .intro-row { grid-template-columns: 1fr; gap: 13px; margin-top: 9px; }
+      h1 { font-size: clamp(36px,9.7vw,47px); }
+      .intro-copy { max-width: 370px; margin: 0; font-size: 13px; line-height: 1.65; }
+      .intro-rule { margin-top: 27px; }
+      .journey { height: 440svh; }
+      .journey-pin { min-height: 0; grid-template-columns: 1fr; grid-template-rows: minmax(0,1fr) auto; gap: 10px; padding-block: 10px 25px; }
+      .journey-pin::before { inset-inline: -19px; background: none; }
+      .ambient-lines { top: 30%; height: 36%; opacity: .72; }
+      .scene-panel { display: flex; min-height: 0; flex-direction: column; justify-content: center; }
+      .scene-caption { margin: 0 2px 6px; font-size: 8px; }
+      .scene-viewport { height: clamp(220px,40svh,350px); min-height: 0; mask-image: linear-gradient(90deg,transparent,#000 3%,#000 97%,transparent); }
+      .world-track { width: 500%; }
+      .station-label { top: 6%; font-size: 7px; }
+      .station::after { bottom: 10%; height: 21%; }
+      .step-copy { display: grid; grid-template-columns: 1fr 25px; column-gap: 13px; align-self: stretch; padding: 1px 0 0; }
+      .step-kicker { grid-column: 1; gap: 7px; font-size: 10px; }
+      .step-kicker .phase { display: none; }
+      .step-title { grid-column: 1; margin: 7px 0 5px; font-size: clamp(27px,7vw,35px); }
+      .step-description { grid-column: 1; min-height: 48px; max-width: 370px; font-size: 13px; line-height: 1.5; }
+      .progress-row { grid-column: 1; grid-row: 4; gap: 11px; margin-top: 11px; }
+      .progress-label { font-size: 9px; }
+      .progress-line { max-width: 90px; }
+      .progress-dots { display: none; }
+      .progress-dot { width: 14px; height: 20px; }
+      .progress-dot::before { width: 7px; height: 7px; }
+      .scroll-cue { display: none; }
+      .mobile-rail { display: flex !important; grid-column: 2; grid-row: 1 / span 4; align-self: center; flex-direction: column; justify-content: center; gap: 18px; }
+      .mobile-rail .progress-dot { width: 24px; height: 18px; }
+      .mobile-rail .progress-dot::after { position: absolute; top: 17px; left: 11px; width: 1px; height: 18px; background: rgba(255,255,255,.1); content: ""; }
+      .mobile-rail .progress-dot:last-child::after { display: none; }
+      .mobile-rail .progress-dot[aria-current="step"]::before { background: var(--accent); border-color: var(--accent); box-shadow: 0 0 12px rgba(96,154,255,.4); }
+      .afterword-inner { min-height: 118px; }
+      .afterword-label { font-size: 8px; }
+      .afterword-link { gap: 9px; font-size: 11px; }
+      .afterword-link span { width: 28px; height: 28px; }
+
+      .magnifier { top: 41%; width: 150px; height: 150px; }
+      .magnifier-glass { top: 4px; left: 15px; width: 88px; height: 88px; border-width: 4px; }
+      .magnifier-glass strong { font-size: 28px; }
+      .magnifier-handle { top: 74px; left: 82px; width: 19px; height: 66px; }
+      .magnifier-collar { top: 70px; left: 73px; width: 27px; height: 14px; }
+      .signal-word { font-size: 7px; }
+      .signal-word::after { width: 18px; margin-top: 5px; }
+      .signal-goal { top: 19%; left: 5%; }
+      .signal-people { top: 24%; right: 2%; }
+      .signal-scope { bottom: 16%; left: 6%; }
+      .signal-need { right: 3%; bottom: 13%; }
+      .sitemap { top: 42%; width: 315px; height: 220px; transform: translate(-50%,-50%) scale(.84) rotateX(8deg) rotateY(-14deg) translateZ(30px); }
+      .plan-caption { bottom: 11%; font-size: 6px; }
+      .build-assembly { transform: translate(-50%,-50%) scale(.73) rotateX(-8deg) rotateY(-22deg); }
+      .code-glyph { top: 23%; left: 3%; font-size: 32px; }
+      .code-caption { top: 35%; left: 3%; font-size: 6px; }
+      .component-axis { right: 1%; top: 63%; font-size: 5px; }
+      .gauge { top: 43%; width: 190px; height: 157px; }
+      .gauge-value { font-size: 36px; }
+      .gauge-value small { font-size: 17px; }
+      .quality-mark { gap: 5px; font-size: 6.5px; }
+      .quality-mark::before { width: 14px; height: 14px; font-size: 7px; }
+      .quality-speed { left: 1%; }
+      .quality-a11y { right: 0; }
+      .quality-seo { right: 6%; }
+      .quality-result { left: 1%; bottom: 12%; font-size: 7px; }
+      .deploy-cloud { top: 15%; width: 155px; height: 108px; }
+      .live-globe { top: 53%; width: 64px; height: 64px; }
+      .globe-ring { top: 53%; width: 112px; height: 38px; }
+      .live-status { top: 52%; right: 6%; font-size: 6px; }
+      .deploy-flow { bottom: 12%; gap: 7px; font-size: 7px; }
+      .deploy-flow i { width: 15px; }
+
+    }
+    .mobile-rail { display: none; }
+    @media (max-width: 380px) {
+      .intro,.journey-pin,.afterword-inner { width: calc(100% - 30px); }
+      .nav-links { gap: 17px; }
+      .nav-links a { font-size: 11px; }
+      .journey-pin { gap: 8px; padding-bottom: 18px; }
+      .scene-viewport { height: clamp(210px,38svh,310px); }
+      .step-description { font-size: 12px; line-height: 1.45; }
+      .progress-row { gap: 7px; }
+      .progress-line { max-width: 66px; }
+    }
+    @media (max-height: 520px) and (max-width: 760px) {
+      .journey-pin { grid-template-columns: .72fr 1.28fr; grid-template-rows: 1fr; gap: 20px; padding-block: 8px; }
+      .step-copy { grid-column: 1; grid-row: 1; display: block; }
+      .scene-panel { grid-column: 2; grid-row: 1; }
+      .scene-viewport { height: clamp(190px,62svh,285px); }
+      .scene-caption { font-size: 6px; letter-spacing: .12em; }
+      .step-title { margin: 9px 0 6px; font-size: clamp(24px,5vw,31px); }
+      .step-description { min-height: 56px; font-size: 11px; line-height: 1.45; }
+      .progress-row { margin-top: 14px; }
+      .scroll-cue { display: none; }
+      .mobile-rail { display: none !important; }
+      .progress-dots { display: flex; }
+      .progress-dot { width: 13px; height: 20px; }
+      .progress-dot::before { width: 7px; height: 7px; }
+    }
+    @media (max-height: 650px) and (min-width: 761px) {
+      .journey-pin { padding-block: 12px; }
+      .scene-viewport { height: clamp(240px,calc(100svh - 330px),335px); }
+      .step-description { min-height: 62px; font-size: 14px; }
+      .scroll-cue { margin-top: 20px; }
+    }
+    @media (max-height: 620px) and (min-width: 761px) {
+      .journey-pin { gap: 26px; }
+      .scene-viewport { height: clamp(220px,calc(100svh - 330px),290px); }
+      .scroll-cue { margin-top: 12px; }
+    }
+    @media (max-height: 570px) and (min-width: 761px) {
+      .step-title { margin-block: 11px 7px; font-size: clamp(29px,3.6vw,38px); }
+      .progress-row { margin-top: 16px; }
+      .scroll-cue { display: none; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      *,*::before,*::after { scroll-behavior: auto !important; animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
+    }
+  </style>
+</head>
+<body id="top">
+  <nav class="site-nav" aria-label="Main navigation">
+    <div class="nav-links">
+      <a href="#top">Home</a><a href="#approach">Work</a><a href="#approach" aria-current="page">About</a><a href="#contact">Contact</a>
+    </div>
+  </nav>
+
+  <main class="approach" id="approach">
+    <header class="intro">
+      <div class="eyebrow">How I work</div>
+      <div class="intro-row"><h1>MY APPROACH</h1><p class="intro-copy">Clear communication, quick iterations, and quality you can measure.</p></div>
+      <div class="intro-rule"></div>
+    </header>
+
+    <section class="journey" id="journey" aria-label="The five stages of my process">
+      <div class="journey-pin">
+        <svg class="ambient-lines" viewBox="0 0 1400 420" preserveAspectRatio="none" aria-hidden="true">
+          <path d="M-40 213 C180 196 250 250 450 230 S790 175 1000 205 S1240 241 1440 192"/><path d="M-30 250 C170 238 280 205 470 222 S770 270 980 231 S1240 196 1430 225"/><path d="M-20 286 C180 261 280 287 495 258 S805 215 1010 250 S1240 277 1435 248"/>
+          <circle cx="210" cy="236" r="2"/><circle cx="472" cy="230" r="2"/><circle cx="1012" cy="250" r="2"/><circle cx="1240" cy="216" r="2"/>
+        </svg>
+
+        <div class="step-copy" id="stepCopy">
+          <div class="step-kicker"><span class="current" id="currentStep">01</span><span class="slash">/</span><span>05</span><span class="phase" id="phaseLabel">DEFINE THE WHY</span></div>
+          <h2 class="step-title" id="stepTitle">Discovery</h2>
+          <p class="step-description" id="stepDescription">We define the goal, audience, and scope — so nothing is built twice.</p>
+          <div class="progress-row"><span class="progress-label">01—05</span><div class="progress-line" aria-hidden="true"><span class="progress-fill" id="progressFill"></span></div><div class="progress-dots" id="progressDots" role="group" aria-label="Jump to a process step"></div></div>
+          <div class="scroll-cue"><svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M8 2.5v10m0 0 4-4m-4 4-4-4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>Scroll to advance</div>
+          <div class="mobile-rail" id="mobileRail" role="group" aria-label="Process progress"></div>
+        </div>
+
+        <div class="scene-panel">
+          <div class="scene-caption"><span class="caption-state"><i></i> OPEN WORKFLOW / 3D FIELD</span><span id="sceneCount">STATION 01 / 05</span></div>
+          <div class="scene-viewport" id="sceneViewport" aria-label="An open 3D landscape showing the work process">
+            <div class="world-track" id="worldTrack" data-step="0">
+              <svg class="world-route" viewBox="0 0 500 500" preserveAspectRatio="none" aria-hidden="true">
+                <path class="route-halo" d="M0 394 C37 360 63 360 100 394 S162 428 200 394 S263 360 300 394 S362 428 400 394 S463 360 500 394"/>
+                <path class="route-line" d="M0 394 C37 360 63 360 100 394 S162 428 200 394 S263 360 300 394 S362 428 400 394 S463 360 500 394"/>
+                <path class="route-stem" d="M50 394V285 M150 394V285 M250 394V285 M350 394V285 M450 394V285"/>
+                <g><circle class="route-node" cx="50" cy="394" r="7"/><circle class="route-core" cx="50" cy="394" r="2"/></g>
+                <g><circle class="route-node" cx="150" cy="394" r="7"/><circle class="route-core" cx="150" cy="394" r="2"/></g>
+                <g><circle class="route-node" cx="250" cy="394" r="7"/><circle class="route-core" cx="250" cy="394" r="2"/></g>
+                <g><circle class="route-node" cx="350" cy="394" r="7"/><circle class="route-core" cx="350" cy="394" r="2"/></g>
+                <g><circle class="route-node" cx="450" cy="394" r="7"/><circle class="route-core" cx="450" cy="394" r="2"/></g>
+              </svg>
+
+              <div class="station station-discovery" data-active="true" aria-hidden="true">
+                <div class="station-inner">
+                  <div class="station-label"><b>01</b> &nbsp; RESEARCH / DISCOVER</div>
+                  <div class="discovery-world">
+                    <div class="magnifier"><div class="magnifier-handle"></div><div class="magnifier-collar"></div><div class="magnifier-glass"><strong>?</strong></div></div>
+                    <span class="signal-word signal-goal">GOAL</span><span class="signal-word signal-people">AUDIENCE</span><span class="signal-word signal-scope">SCOPE</span><span class="signal-word signal-need">USER NEED</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="station station-plan" data-active="false" aria-hidden="true">
+                <div class="station-inner">
+                  <div class="station-label"><b>02</b> &nbsp; SITE MAP / PLAN</div>
+                  <div class="plan-world">
+                    <svg class="sitemap" viewBox="0 0 400 260" aria-hidden="true">
+                      <path d="M200 70V111M80 111H320M80 111V158M200 111V158M320 111V158"/>
+                      <circle class="root-node" cx="200" cy="48" r="25"/><circle cx="80" cy="178" r="19"/><circle cx="200" cy="178" r="19"/><circle cx="320" cy="178" r="19"/>
+                      <text x="200" y="52">HOME</text><text x="80" y="182">WORK</text><text x="200" y="182">ABOUT</text><text x="320" y="182">CONTACT</text>
+                      <text class="sub-label" x="80" y="215">PROJECTS</text><text class="sub-label" x="200" y="215">STORY</text><text class="sub-label" x="320" y="215">REACH OUT</text>
+                    </svg>
+                    <span class="plan-caption">USER FLOW / INFORMATION ARCHITECTURE</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="station station-build" data-active="false" aria-hidden="true">
+                <div class="station-inner">
+                  <div class="station-label"><b>03</b> &nbsp; CODE / ASSEMBLE</div>
+                  <div class="build-world">
+                    <div class="build-assembly">
+                      <div class="site-module module-header">HEADER / NAV</div><div class="site-module module-hero">HERO / VALUE</div><div class="site-module module-grid"><i></i><i></i><i></i></div>
+                    </div>
+                    <div class="code-glyph">&lt;/&gt;</div><div class="code-caption">COMPONENTS / CODE</div><div class="component-axis">CLEAN · SEMANTIC · REVIEWABLE</div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="station station-optimize" data-active="false" aria-hidden="true">
+                <div class="station-inner">
+                  <div class="station-label"><b>04</b> &nbsp; TEST / IMPROVE</div>
+                  <div class="optimize-world">
+                    <div class="gauge">
+                      <svg viewBox="0 0 240 190" aria-hidden="true">
+                        <path class="arc-bg" d="M35 145A85 85 0 0 1 205 145"/><path class="arc-fill" d="M35 145A85 85 0 0 1 205 145"/>
+                        <path class="tick" d="M43 112l10 5M65 77l8 8M120 54v13M175 77l-8 8M197 112l-10 5"/>
+                        <line class="needle" x1="120" y1="145" x2="120" y2="67"/><circle class="hub" cx="120" cy="145" r="7"/>
+                      </svg>
+                      <div class="gauge-value">98<small>PERFORMANCE</small></div>
+                    </div>
+                    <span class="quality-mark quality-speed">FASTER LOAD</span><span class="quality-mark quality-a11y">ACCESSIBLE</span><span class="quality-mark quality-seo">SEO READY</span><span class="quality-result">MEASURED / REFINED</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="station station-launch" data-active="false" aria-hidden="true">
+                <div class="station-inner">
+                  <div class="station-label"><b>05</b> &nbsp; DEPLOY / LAUNCH</div>
+                  <div class="launch-world">
+                    <svg class="deploy-cloud" viewBox="0 0 180 140" aria-hidden="true">
+                      <path d="M43 99h91c15 0 26-11 26-25 0-13-11-24-25-24-4-17-19-29-37-29-19 0-35 14-38 32-3-2-7-3-11-3-15 0-27 12-27 26 0 13 9 23 21 23Z"/>
+                      <path class="upload-arrow" d="M90 94V55m-17 17 17-18 17 18"/>
+                    </svg>
+                    <div class="globe-ring"></div><div class="live-globe"></div>
+                    <span class="live-status"><i></i> LIVE</span>
+                    <div class="deploy-flow"><span>TEST</span><i></i><span>DEPLOY</span><i></i><span>LIVE</span></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="afterword" id="contact"><div class="afterword-inner"><span class="afterword-label">A thoughtful process. A better product.</span><a class="afterword-link" href="mailto:hello@example.com">Have a project in mind? <span aria-hidden="true">↗</span></a></div></footer>
+
+  <script>
+    (() => {
+      const steps = [
+        { title: "Discovery", description: "We define the goal, audience, and scope — so nothing is built twice.", phase: "DEFINE THE WHY" },
+        { title: "Design & Plan", description: "Structure, layout, and a clear roadmap before a single line of code.", phase: "MAP THE WAY" },
+        { title: "Build", description: "Clean, semantic code shipped in small, reviewable increments.", phase: "MAKE IT REAL" },
+        { title: "Optimize", description: "Performance, accessibility, and SEO tuned until the numbers are right.", phase: "REFINE THE DETAILS" },
+        { title: "Launch", description: "Deploy, monitor, and hand over documentation you can actually use.", phase: "READY FOR THE WORLD" }
+      ];
+      const journey = document.getElementById("journey");
+      const sceneViewport = document.getElementById("sceneViewport");
+      const worldTrack = document.getElementById("worldTrack");
+      const stations = [...worldTrack.querySelectorAll(".station")];
+      const copy = document.getElementById("stepCopy");
+      const title = document.getElementById("stepTitle");
+      const description = document.getElementById("stepDescription");
+      const current = document.getElementById("currentStep");
+      const phase = document.getElementById("phaseLabel");
+      const sceneCount = document.getElementById("sceneCount");
+      const fill = document.getElementById("progressFill");
+      const dotsWrap = document.getElementById("progressDots");
+      const mobileRail = document.getElementById("mobileRail");
+      const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+      let activeStep = -1;
+      let targetProgress = 0;
+      let renderedProgress = 0;
+      let rafId = 0;
+      let previousFrameTime = 0;
+      let copyToken = 0;
+      let firstFrame = true;
+      let snapLocked = false;
+      let snapUnlockTimer = 0;
+      let idleSnapTimer = 0;
+      let scrollAnimationFrame = 0;
+      let customScrollActive = false;
+      let previousInlineScrollBehavior = "";
+
+      const clamp = (value,min,max) => Math.min(max,Math.max(min,value));
+      const mix = (a,b,t) => a+(b-a)*t;
+      function fitCanvas() {
+        const rect = sceneViewport.getBoundingClientRect();
+        if (!rect.width || !rect.height) return;
+        const mobile = window.matchMedia("(max-width: 760px)").matches;
+        const designWidth = mobile ? 300 : 560;
+        const designHeight = mobile ? 245 : 445;
+        const scale = clamp(Math.min(rect.width / designWidth, rect.height / designHeight), mobile ? .72 : .72, 1.05);
+        sceneViewport.style.setProperty("--canvas-scale", scale.toFixed(3));
+      }
+      function getProgress() {
+        const rect = journey.getBoundingClientRect();
+        const range = Math.max(1,journey.offsetHeight-window.innerHeight);
+        return clamp(-rect.top/range,0,1);
+      }
+      function isJourneyEngaged() {
+        const rect = journey.getBoundingClientRect();
+        return rect.top<=1 && rect.bottom>=window.innerHeight-1;
+      }
+      function nearestStep(progress=getProgress()) { return clamp(Math.round(progress*(steps.length-1)),0,steps.length-1); }
+      function releaseSnap() { snapLocked=false; window.clearTimeout(snapUnlockTimer); }
+
+      function animatePageTo(target) {
+        if (scrollAnimationFrame) cancelAnimationFrame(scrollAnimationFrame);
+        const root=document.documentElement;
+        if (!customScrollActive) previousInlineScrollBehavior=root.style.scrollBehavior;
+        root.style.scrollBehavior="auto";
+        customScrollActive=true;
+        const start=window.scrollY;
+        const distance=target-start;
+        const duration=clamp(390+Math.abs(distance)*.32,520,920);
+        const startedAt=performance.now();
+        const tick=now=>{
+          const t=clamp((now-startedAt)/duration,0,1);
+          const eased=t<.5?4*t*t*t:1-Math.pow(-2*t+2,3)/2;
+          window.scrollTo(0,start+distance*eased);
+          if(t<1) scrollAnimationFrame=requestAnimationFrame(tick);
+          else {
+            window.scrollTo(0,target);
+            scrollAnimationFrame=0;
+            customScrollActive=false;
+            root.style.scrollBehavior=previousInlineScrollBehavior;
+          }
+        };
+        scrollAnimationFrame=requestAnimationFrame(tick);
+      }
+      function scrollToStep(index) {
+        index=clamp(index,0,steps.length-1);
+        const rect=journey.getBoundingClientRect();
+        const start=window.scrollY+rect.top;
+        const range=Math.max(1,journey.offsetHeight-window.innerHeight);
+        const target=start+(index/(steps.length-1))*range;
+        if(Math.abs(target-window.scrollY)<2){releaseSnap();return;}
+        snapLocked=true;
+        window.clearTimeout(idleSnapTimer);
+        window.clearTimeout(snapUnlockTimer);
+        if(reduceMotion.matches) window.scrollTo(0,target);
+        else animatePageTo(target);
+        snapUnlockTimer=window.setTimeout(releaseSnap,1500);
+      }
+      function moveOneStage(direction) {
+        const progress=getProgress();
+        const here=nearestStep(progress);
+        if(direction<0&&here===0){if(progress<=.006)return false;scrollToStep(0);return true;}
+        if(direction>0&&here===steps.length-1){if(progress>=.994)return false;scrollToStep(steps.length-1);return true;}
+        scrollToStep(here+direction);return true;
+      }
+      function makeDot(index,extraClass="") {
+        const button=document.createElement("button");
+        button.type="button";button.className=`progress-dot ${extraClass}`.trim();
+        button.setAttribute("aria-label",`Go to step ${String(index+1).padStart(2,"0")}: ${steps[index].title}`);
+        button.addEventListener("click",()=>scrollToStep(index));
+        return button;
+      }
+      steps.forEach((_,index)=>{dotsWrap.appendChild(makeDot(index));mobileRail.appendChild(makeDot(index,"rail-dot"));});
+      const allDots=[...dotsWrap.querySelectorAll("button"),...mobileRail.querySelectorAll("button")];
+
+      function paintStep(index) {
+        if(index===activeStep)return;
+        activeStep=index;
+        const item=steps[index];
+        const token=++copyToken;
+        copy.classList.add("is-changing");
+        worldTrack.dataset.step=String(index);
+        current.textContent=String(index+1).padStart(2,"0");
+        title.textContent=item.title;
+        description.textContent=item.description;
+        phase.textContent=item.phase;
+        sceneCount.textContent=`STATION ${String(index+1).padStart(2,"0")} / 05`;
+        stations.forEach((station,i)=>station.dataset.active=String(i===index));
+        allDots.forEach((dot,i)=>{if(i===index)dot.setAttribute("aria-current","step");else dot.removeAttribute("aria-current");});
+        if(reduceMotion.matches)copy.classList.remove("is-changing");
+        else requestAnimationFrame(()=>requestAnimationFrame(()=>{if(token===copyToken)copy.classList.remove("is-changing");}));
+      }
+      function renderScene(progress) {
+        fill.style.width=`${(progress*100).toFixed(2)}%`;
+        const position=progress*(steps.length-1);
+        paintStep(nearestStep(progress));
+        const x=position*20;
+        const y=-Math.sin(position*Math.PI)*8;
+        const z=mix(-10,20,progress);
+        worldTrack.style.transform=`translate3d(-${x.toFixed(3)}%,${y.toFixed(2)}px,${z.toFixed(2)}px)`;
+        worldTrack.style.setProperty("--travel-progress",progress.toFixed(4));
+      }
+      function renderFrame(time) {
+        rafId=0;
+        const elapsed=previousFrameTime?Math.min(50,time-previousFrameTime):16.7;
+        previousFrameTime=time;
+        if(firstFrame){renderedProgress=targetProgress;firstFrame=false;}
+        else {
+          const follow=reduceMotion.matches?1:1-Math.exp(-elapsed/52);
+          renderedProgress+=(targetProgress-renderedProgress)*follow;
+          if(Math.abs(targetProgress-renderedProgress)<.00045)renderedProgress=targetProgress;
+        }
+        renderScene(renderedProgress);
+        if(Math.abs(targetProgress-renderedProgress)>=.00045)rafId=requestAnimationFrame(renderFrame);
+        else previousFrameTime=0;
+      }
+      function readScrollTarget() {
+        const rect=journey.getBoundingClientRect();
+        const range=Math.max(1,journey.offsetHeight-window.innerHeight);
+        targetProgress=clamp(-rect.top/range,0,1);
+        if(!rafId)rafId=requestAnimationFrame(renderFrame);
+        if(snapLocked){window.clearTimeout(snapUnlockTimer);snapUnlockTimer=window.setTimeout(releaseSnap,180);}
+        else if(isJourneyEngaged()){
+          window.clearTimeout(idleSnapTimer);
+          idleSnapTimer=window.setTimeout(()=>{
+            if(!snapLocked&&isJourneyEngaged()){
+              const progress=getProgress(),step=nearestStep(progress),anchor=step/(steps.length-1);
+              if(Math.abs(progress-anchor)>.012)scrollToStep(step);
+            }
+          },190);
+        }
+      }
+      function onWheel(event) {
+        if(Math.abs(event.deltaY)<3||!isJourneyEngaged())return;
+        const progress=getProgress(),direction=Math.sign(event.deltaY);
+        if((direction<0&&progress<=.006)||(direction>0&&progress>=.994))return;
+        event.preventDefault();
+        if(!snapLocked)moveOneStage(direction);
+      }
+      function onKeyDown(event) {
+        if(!isJourneyEngaged())return;
+        if(event.target.closest("button,a,input,textarea,select,[contenteditable='true']"))return;
+        let direction=0;
+        if(["ArrowDown","PageDown"," "].includes(event.key))direction=1;
+        if(["ArrowUp","PageUp"].includes(event.key))direction=-1;
+        if(!direction)return;
+        const progress=getProgress();
+        if((direction<0&&progress<=.006)||(direction>0&&progress>=.994))return;
+        event.preventDefault();if(!snapLocked)moveOneStage(direction);
+      }
+      function onScrollEnd() {
+        if(customScrollActive)return;
+        if(snapLocked){releaseSnap();return;}
+        if(!isJourneyEngaged())return;
+        const progress=getProgress(),step=nearestStep(progress);
+        if(Math.abs(progress-step/(steps.length-1))>.012)scrollToStep(step);
+      }
+      window.addEventListener("scroll",readScrollTarget,{passive:true});
+      window.addEventListener("resize",()=>{fitCanvas();readScrollTarget();},{passive:true});
+      window.addEventListener("wheel",onWheel,{passive:false});
+      window.addEventListener("keydown",onKeyDown);
+      window.addEventListener("scrollend",onScrollEnd);
+      if("ResizeObserver" in window){
+        const sizeObserver=new ResizeObserver(()=>{fitCanvas();readScrollTarget();});
+        sizeObserver.observe(journey);
+        sizeObserver.observe(sceneViewport);
+      }
+      fitCanvas();
+      paintStep(0);readScrollTarget();
+    })();
+  </script>
+</body>
+</html>

@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 480" fill="none">
+  <defs>
+    <linearGradient id="bg" x1="73" y1="36" x2="900" y2="452" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#29153F"/>
+      <stop offset="1" stop-color="#32152F"/>
+    </linearGradient>
+    <linearGradient id="chart" x1="264" y1="326" x2="724" y2="168" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#C084FC"/>
+      <stop offset=".52" stop-color="#F472B6"/>
+      <stop offset="1" stop-color="#FDBA74"/>
+    </linearGradient>
+    <linearGradient id="gauge" x1="690" y1="153" x2="833" y2="276" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#F472B6"/>
+      <stop offset="1" stop-color="#FDBA74"/>
+    </linearGradient>
+    <radialGradient id="halo" cx="0" cy="0" r="1" gradientTransform="matrix(0 223 -343 0 503 235)" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#DB2777" stop-opacity=".2"/>
+      <stop offset="1" stop-color="#DB2777" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="960" height="480" rx="28" fill="url(#bg)"/>
+  <rect width="960" height="480" rx="28" fill="url(#halo)"/>
+  <path d="M0 381h960M0 421h960M112 0v480m736-480v480" stroke="#F9A8D4" stroke-opacity=".07"/>
+  <rect x="126" y="92" width="563" height="292" rx="18" fill="#251936" stroke="#F0ABFC" stroke-opacity=".4" stroke-width="2"/>
+  <path d="M126 111a19 19 0 0 1 19-19h525a19 19 0 0 1 19 19v39H126v-39Z" fill="#321C3D"/>
+  <circle cx="153" cy="120" r="5" fill="#FB7185"/>
+  <circle cx="172" cy="120" r="5" fill="#FBBF24"/>
+  <circle cx="191" cy="120" r="5" fill="#34D399"/>
+  <text x="220" y="126" fill="#FBCFE8" font-family="monospace" font-size="13" letter-spacing="2">PERFORMANCE / 30 DAYS</text>
+  <path d="M174 321h457M174 264h457M174 207h457" stroke="#FBCFE8" stroke-opacity=".13" stroke-width="2" stroke-dasharray="5 9"/>
+  <path d="M179 305c48-5 50-70 97-60s41 27 83 9 54 8 91-25 55 1 91-48 54-1 83-45" stroke="url(#chart)" stroke-width="8" stroke-linecap="round"/>
+  <path d="M600 137h40v40" stroke="#FDBA74" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="m640 137-75 75" stroke="#FDBA74" stroke-width="7" stroke-linecap="round"/>
+  <circle cx="356" cy="254" r="9" fill="#F9A8D4" stroke="#FFF1F2" stroke-width="4"/>
+  <circle cx="450" cy="229" r="9" fill="#F9A8D4" stroke="#FFF1F2" stroke-width="4"/>
+  <circle cx="541" cy="181" r="9" fill="#F9A8D4" stroke="#FFF1F2" stroke-width="4"/>
+  <circle cx="773" cy="226" r="84" fill="#281B39" stroke="#F472B6" stroke-opacity=".58" stroke-width="2"/>
+  <path d="M717 256a65 65 0 0 1 112-46" stroke="#5B3554" stroke-width="16" stroke-linecap="round"/>
+  <path d="M717 256a65 65 0 0 1 90-58" stroke="url(#gauge)" stroke-width="16" stroke-linecap="round"/>
+  <path d="m773 226 39-46" stroke="#FFF1F2" stroke-width="6" stroke-linecap="round"/>
+  <circle cx="773" cy="226" r="10" fill="#FFF1F2"/>
+  <text x="747" y="291" fill="#FBCFE8" font-family="monospace" font-size="16" letter-spacing="2">98</text>
+  <rect x="714" y="337" width="118" height="32" rx="16" fill="#831843" fill-opacity=".55" stroke="#F472B6" stroke-opacity=".65"/>
+  <text x="733" y="358" fill="#FCE7F3" font-family="monospace" font-size="12">CORE WEB VITALS</text>
+  <text x="128" y="427" fill="#FBCFE8" font-family="monospace" font-size="15" letter-spacing="4">SPEED / ACCESSIBILITY / SEARCH</text>
+</svg>

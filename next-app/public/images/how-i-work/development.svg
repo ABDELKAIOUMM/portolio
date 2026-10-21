@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 480" fill="none">
+  <defs>
+    <linearGradient id="bg" x1="77" y1="28" x2="878" y2="462" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#171940"/>
+      <stop offset="1" stop-color="#27143B"/>
+    </linearGradient>
+    <linearGradient id="screen" x1="220" y1="94" x2="710" y2="379" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#101C36"/>
+      <stop offset="1" stop-color="#10172A"/>
+    </linearGradient>
+    <linearGradient id="code" x1="332" y1="188" x2="648" y2="345" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#22D3EE"/>
+      <stop offset=".48" stop-color="#A78BFA"/>
+      <stop offset="1" stop-color="#F472B6"/>
+    </linearGradient>
+    <filter id="glow" x="233" y="87" width="563" height="337" color-interpolation-filters="sRGB" filterUnits="userSpaceOnUse">
+      <feGaussianBlur stdDeviation="15"/>
+    </filter>
+  </defs>
+  <rect width="960" height="480" rx="28" fill="url(#bg)"/>
+  <circle cx="481" cy="245" r="215" fill="#8B5CF6" fill-opacity=".08"/>
+  <path d="m108 348 101-58m542-121 92-53M170 125l69 40m461 165 91 49" stroke="#A78BFA" stroke-opacity=".16" stroke-width="2"/>
+  <rect x="244" y="92" width="543" height="320" rx="21" fill="#8B5CF6" fill-opacity=".42" filter="url(#glow)"/>
+  <rect x="230" y="91" width="522" height="297" rx="17" fill="url(#screen)" stroke="#A78BFA" stroke-opacity=".7" stroke-width="2"/>
+  <path d="M230 108a17 17 0 0 1 17-17h488a17 17 0 0 1 17 17v34H230v-34Z" fill="#222047"/>
+  <circle cx="257" cy="117" r="6" fill="#FB7185"/>
+  <circle cx="278" cy="117" r="6" fill="#FBBF24"/>
+  <circle cx="299" cy="117" r="6" fill="#34D399"/>
+  <rect x="230" y="142" width="94" height="246" fill="#171B35"/>
+  <path d="M255 176h43m-43 25h30m-30 25h39m-39 25h25m-25 25h43m-43 25h30m-30 25h39" stroke="#94A3B8" stroke-opacity=".45" stroke-width="5" stroke-linecap="round"/>
+  <text x="347" y="188" fill="#64748B" font-family="monospace" font-size="15">01</text>
+  <text x="347" y="224" fill="#64748B" font-family="monospace" font-size="15">02</text>
+  <text x="347" y="260" fill="#64748B" font-family="monospace" font-size="15">03</text>
+  <text x="347" y="296" fill="#64748B" font-family="monospace" font-size="15">04</text>
+  <text x="347" y="332" fill="#64748B" font-family="monospace" font-size="15">05</text>
+  <path d="M379 184h107m-85 0h41m-63 36h56m15 0h124m-195 36h32m17 0h102m-151 36h83m16 0h97m-196 36h42m16 0h111m-169 36h71" stroke="url(#code)" stroke-width="8" stroke-linecap="round"/>
+  <path d="m177 206-43 39 43 39m605-78 43 39-43 39" stroke="#C4B5FD" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="178" cy="126" r="4" fill="#22D3EE"/>
+  <circle cx="810" cy="343" r="5" fill="#F472B6"/>
+  <circle cx="846" cy="129" r="4" fill="#A78BFA"/>
+  <text x="244" y="443" fill="#C4B5FD" font-family="monospace" font-size="15" letter-spacing="4">COMPONENTS / CODE / INTERACTION</text>
+</svg>

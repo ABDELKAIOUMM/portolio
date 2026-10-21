@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 480" fill="none">
+  <defs>
+    <linearGradient id="bg" x1="67" y1="24" x2="888" y2="455" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#101F3D"/>
+      <stop offset=".55" stop-color="#162B3D"/>
+      <stop offset="1" stop-color="#102E2C"/>
+    </linearGradient>
+    <linearGradient id="rocket" x1="406" y1="105" x2="586" y2="353" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FBCFE8"/>
+      <stop offset=".5" stop-color="#F9A8D4"/>
+      <stop offset="1" stop-color="#FB923C"/>
+    </linearGradient>
+    <linearGradient id="flame" x1="470" y1="320" x2="484" y2="416" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FDE68A"/>
+      <stop offset=".48" stop-color="#FB923C"/>
+      <stop offset="1" stop-color="#F43F5E" stop-opacity="0"/>
+    </linearGradient>
+    <radialGradient id="planet" cx="0" cy="0" r="1" gradientTransform="matrix(0 164 -216 0 499 474)" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#34D399" stop-opacity=".37"/>
+      <stop offset="1" stop-color="#34D399" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="960" height="480" rx="28" fill="url(#bg)"/>
+  <circle cx="499" cy="495" r="206" fill="url(#planet)"/>
+  <path d="M0 384c121-35 210-35 320 0s219 35 321 0 209-35 319 0v96H0v-96Z" fill="#0B3435" fill-opacity=".6"/>
+  <path d="M0 404c122-32 206-32 320 0s216 32 321 0 208-32 319 0" stroke="#34D399" stroke-opacity=".34" stroke-width="2"/>
+  <circle cx="196" cy="119" r="3" fill="#FDE68A"/>
+  <circle cx="286" cy="205" r="4" fill="#A7F3D0"/>
+  <circle cx="682" cy="98" r="4" fill="#FBCFE8"/>
+  <circle cx="783" cy="184" r="3" fill="#A7F3D0"/>
+  <circle cx="748" cy="306" r="5" fill="#FDE68A"/>
+  <path d="M173 292h171m-143 18h114m-91 18h68" stroke="#6EE7B7" stroke-opacity=".46" stroke-width="4" stroke-linecap="round"/>
+  <path d="m479 346-31 76 38-30 35 19-23-65" fill="url(#flame)"/>
+  <path d="M478 111c-46 48-68 109-69 188l67 56 69-56c-2-78-24-140-67-188Z" fill="url(#rocket)" stroke="#FCE7F3" stroke-width="3"/>
+  <path d="M478 111c-46 48-68 109-69 188l67 56 69-56c-2-78-24-140-67-188Z" stroke="#FFF1F2" stroke-opacity=".34" stroke-width="2"/>
+  <circle cx="479" cy="231" r="28" fill="#1E3550" stroke="#FDF2F8" stroke-width="5"/>
+  <circle cx="479" cy="231" r="17" fill="#38BDF8" fill-opacity=".82"/>
+  <path d="M453 317h51l-27 38-24-38Z" fill="#FDBA74"/>
+  <path d="m409 279-39 51 39-9m136-42 39 51-39-9" fill="#F472B6" stroke="#FCE7F3" stroke-width="3" stroke-linejoin="round"/>
+  <path d="m457 157-31 80m73-80 27 80" stroke="#FFF1F2" stroke-opacity=".38" stroke-width="3" stroke-linecap="round"/>
+  <path d="M624 147h152v102H624z" fill="#10283A" stroke="#6EE7B7" stroke-opacity=".58" stroke-width="2"/>
+  <path d="M624 147h152v25H624z" fill="#16433E"/>
+  <circle cx="642" cy="159" r="4" fill="#34D399"/>
+  <path d="M643 196h99m-99 18h71m-71 18h48" stroke="#A7F3D0" stroke-opacity=".65" stroke-width="5" stroke-linecap="round"/>
+  <circle cx="660" cy="323" r="31" fill="#123B38" stroke="#34D399" stroke-opacity=".75"/>
+  <path d="m645 323 11 11 21-23" stroke="#A7F3D0" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="125" y="444" fill="#A7F3D0" font-family="monospace" font-size="15" letter-spacing="4">DEPLOY / DELIVER / GROW</text>
+</svg>

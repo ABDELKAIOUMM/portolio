@@ -1,0 +1,34 @@
+# Dependencies and generated build output
+node_modules/
+next-app/node_modules/
+next-app/.next/
+next-app/out/
+next-app/build/
+next-app/coverage/
+*.tsbuildinfo
+
+# Local environment and operating-system files
+.env
+.env.*
+!.env.example
+Thumbs.db
+Desktop.ini
+.DS_Store
+
+# Local debugging and preview artifacts
+_dump*
+_fix.js
+_probe*
+_run*.cmd
+_toolbox*
+*.backup.html
+*.original.backup.html
+index.backup*.html
+
+# Editor/agent notes and temporary project helpers
+.vscode/
+.clinerules.md
+.roorules
+Attached Element Context from Integrated.txt
+.ticker_transform.py
+{'

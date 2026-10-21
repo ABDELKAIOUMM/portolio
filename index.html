@@ -1,0 +1,731 @@
+﻿<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description"
+    content="Websites built to grow your business: landing pages and online stores with WordPress, WooCommerce, and Shopify."
+    data-i18n-content="meta.description" />
+  <title data-i18n="meta.title">ABDELKAIOUM | Web Developer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Arabic:wght@400;500;600;700&display=swap"
+    rel="stylesheet" />
+
+  <!-- Lenis (smooth scroll) + GSAP + ScrollTrigger -->
+  <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.14/dist/lenis.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+  <div class="scroll-progress" id="progress" aria-hidden="true"></div>
+
+  <div class="bg-grid" aria-hidden="true"></div>
+
+  <div class="bg-wave" aria-hidden="true">
+    <canvas id="wave"></canvas>
+  </div>
+
+  <div class="grain" aria-hidden="true"></div>
+
+  <header class="site-header" id="siteHeader">
+    <nav class="nav wrap" aria-label="Main navigation" data-i18n-aria="nav.label">
+      <ul class="nav-links">
+        <li><a href="#top" data-i18n="nav.home">Home</a></li>
+        <li><a href="#about" data-i18n="nav.services">Services</a></li>
+        <li><a href="#work" data-i18n="nav.work">Work</a></li>
+        <li><a href="#approach" data-i18n="nav.approach">Approach</a></li>
+        <li><a href="#toolbox" data-i18n="nav.skills">Skills</a></li>
+        <li><a href="#contact" data-i18n="nav.contact">Contact</a></li>
+      </ul>
+      <button class="language-switch" id="languageSwitch" type="button" lang="ar" dir="ltr"
+        aria-label="Switch to Arabic" data-i18n-switch>
+        <svg class="language-switch__globe" viewBox="0 0 32 32" aria-hidden="true" focusable="false">
+          <circle cx="16" cy="16" r="13" />
+          <ellipse cx="16" cy="16" rx="6" ry="13" />
+          <path d="M4 12h24M4 20h24" />
+        </svg>
+        <span class="language-switch__letters" aria-hidden="true"><span>ع</span><span>a</span></span>
+      </button>
+    </nav>
+  </header>
+
+  <main id="top">
+    <section class="hero wrap" aria-labelledby="hero-title">
+      <div class="hero-text">
+        <p class="eyebrow" data-i18n="hero.eyebrow">Websites built to grow your business</p>
+        <h1 id="hero-title" data-i18n="hero.title" data-i18n-aria="hero.title">I'm Abdelkaioum</h1>
+        <p class="role" data-i18n="hero.role">WordPress &amp; Shopify Developer</p>
+        <p class="lead">
+          <span class="line" data-i18n="hero.line1">I build landing pages and online stores</span>
+          <span class="line" data-i18n="hero.line2">with WordPress, WooCommerce, and Shopify.</span>
+          <span class="line" data-i18n="hero.line3">Fast, responsive, and easy to manage after launch.</span>
+        </p>
+        <a class="cta" href="#contact" data-i18n="hero.cta">Start a Project</a>
+      </div>
+
+      <figure class="portrait">
+
+        <img src="me.jpeg" alt="Portrait of ABDELKAIOUM, web developer" data-i18n-alt="hero.portraitAlt" width="840"
+          height="1050" loading="eager" decoding="async" />
+      </figure>
+    </section>
+
+    <!-- ============ ABOUT ============ -->
+    <section id="about" class="section wrap" aria-labelledby="about-title">
+      <!-- What I Do -->
+      <div class="services-block">
+        <div class="section-head services-heading" style="margin-top: clamp(2rem, 5vw, 3.5rem);">
+          <div>
+            <p class="eyebrow" data-i18n="services.eyebrow">Services</p>
+            <h3 class="section-title" id="about-title" data-i18n="services.title">Services</h3>
+          </div>
+          <p data-i18n="services.intro">Landing pages and online stores designed around your goalsâ€”easy to use, simple
+            to manage, and built for a
+            smooth customer journey.</p>
+        </div>
+
+        <div class="services-timeline" data-services-timeline>
+          <span class="services-line-bg" aria-hidden="true"></span>
+          <span class="services-line-fg" data-services-line aria-hidden="true"></span>
+
+          <ol class="services-track">
+
+            <li class="service-milestone" data-service="landing-page">
+              <span class="service-dot" aria-hidden="true"></span>
+              <span class="service-index" aria-hidden="true">01</span>
+              <article class="service-card" style="--icon-color:#c4b5fd">
+                <span class="card-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"
+                    stroke-linejoin="round">
+                    <rect x="3" y="4" width="18" height="16" rx="2" />
+                    <path d="M3 8h18M7 6h.01M10 6h.01M7 12h10M7 15h7" />
+                  </svg>
+                </span>
+                <h3 data-i18n="service.landing.title">Landing Pages</h3>
+                <p data-i18n="service.landing.copy">Focused pages that explain your offer clearly, guide visitors toward
+                  action, and work smoothly on
+                  mobile.</p>
+              </article>
+            </li>
+
+            <li class="service-milestone" data-service="wordpress">
+              <span class="service-dot" aria-hidden="true"></span>
+              <span class="service-index" aria-hidden="true">02</span>
+              <article class="service-card" style="--icon-color:#55e9ce">
+                <span class="card-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"
+                    stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="9.2" />
+                    <path d="M3.4 9.2h17.2M3.4 14.8h17.2" />
+                    <path
+                      d="M12 2.8c2.6 2.6 3.9 5.7 3.9 9.2s-1.3 6.6-3.9 9.2c-2.6-2.6-3.9-5.7-3.9-9.2S9.4 5.4 12 2.8Z" />
+                  </svg>
+                </span>
+                <h3 data-i18n="service.wordpress.title">WordPress Stores</h3>
+                <p data-i18n="service.wordpress.copy">Easy-to-manage WooCommerce stores with clear product browsing and
+                  a smoother path from product page
+                  to checkout.</p>
+              </article>
+            </li>
+
+            <li class="service-milestone" data-service="shopify">
+              <span class="service-dot" aria-hidden="true"></span>
+              <span class="service-index" aria-hidden="true">03</span>
+              <article class="service-card" style="--icon-color:#79dfaa">
+                <span class="card-icon" aria-hidden="true">
+                  <svg viewBox="0 0 448 512" fill="currentColor" stroke="none">
+                    <path
+                      d="M388.32 104.1a4.66 4.66 0 0 0-4.4-4c-2 0-37.23-.8-37.23-.8s-21.61-20.82-29.62-28.83V503.2L442.76 472S388.72 106.5 388.32 104.1zM288.65 70.47a116.67 116.67 0 0 0-7.21-17.61C271 32.85 255.42 21 236.73 21a45.44 45.44 0 0 0-13.22 1.8c-.4-.4-.8-1.2-1.2-1.6C214.1 12.2 202.5 6.6 189.7 6.6c-37.63 0-55.82 47.24-61.43 71.26-13.62 4.4-23.23 7.21-24.43 7.61-7.61 2.4-7.81 2.6-8.81 9.61-.8 5.21-20.62 159.15-20.62 159.15L288.65 503.2V70.47zM236.73 41.4c-9.21 2.8-19.22 6-29.63 9.21 5.61-21.62 16.22-32.42 25.43-36.22a24.76 24.76 0 0 1 4.2 27.01zm-39.24 12.42c-9.61 3-19.82 6.2-30.23 9.41 5.8-22.42 16.81-33.42 26.42-37.23 3.4 7.01 3.81 17.02 3.81 27.82zm-24.83-37.63c5.4 0 9.21 1.2 12.21 3.4-13.21 6.21-27.42 21.82-33.42 53.44-8.41 2.6-16.61 5.2-24.22 7.61 6.61-22.82 22.62-64.45 45.43-64.45zM208.9 503.2l-51.24-15.41s16.41-108.9 16.41-108.9c0-.4.4-.6.6-.6s10.41-.8 10.41-.8s7.81-4.8 10.81-7.61c3.2-3 4.6-8.41 3.4-14.21-1.6-8.61-9.61-14.42-16.41-14.42-1.2 0-2.4.2-3.6.6c-1.6.4-3.4 1.2-5.2 2.2l-6.61-20.02c6.61-2.2 12.21-5.4 16.61-9.61 3.4-3.2 6.2-7.01 8.21-11.21-8.41-4-19.22-6.61-31.03-6.61-51.24 0-76.06 64.45-76.06 96.87 0 33.42 17.61 51.24 41.03 51.24 12.21 0 23.42-5.2 33.42-13.61l-6.2-19.22c-5.4 4.4-11.21 7.21-16.41 7.21-8.21 0-11.21-7.21-11.21-17.41 0-28.83 16.81-57.05 38.03-57.05 4.4 0 8.41.8 11.61 2.2l-9.61 29.63c-3.4 10.41-6.61 21.02-9.41 31.63l-51.24 15.41z" />
+                  </svg>
+                </span>
+                <h3 data-i18n="service.shopify.title">Shopify Stores</h3>
+                <p data-i18n="service.shopify.copy">Custom Shopify storefronts with clear product pages and a
+                  straightforward buying flow, ready for you
+                  to manage.</p>
+              </article>
+            </li>
+
+            <li class="service-milestone" data-service="performance">
+              <span class="service-dot" aria-hidden="true"></span>
+              <span class="service-index" aria-hidden="true">04</span>
+              <article class="service-card" style="--icon-color:#fcd34d">
+                <span class="card-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"
+                    stroke-linejoin="round">
+                    <path d="M4 18.5a9 9 0 1 1 16 0" />
+                    <path d="M12 18.5 16.2 11" />
+                    <circle cx="12" cy="18.5" r="1.4" fill="currentColor" stroke="none" />
+                    <path d="M4.6 13.6h1.6M17.8 13.6h1.6M12 6.2v1.6" />
+                  </svg>
+                </span>
+                <h3 data-i18n="service.performance.title">Performance &amp; SEO</h3>
+                <p data-i18n="service.performance.copy">Improve load times, Core Web Vitals, and on-page SEO foundations
+                  for a smoother experience and
+                  clearer search signals.</p>
+              </article>
+            </li>
+
+            <li class="service-milestone" data-service="portfolio">
+              <span class="service-dot" aria-hidden="true"></span>
+              <span class="service-index" aria-hidden="true">05</span>
+              <article class="service-card" style="--icon-color:#c4b5fd">
+                <span class="card-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"
+                    stroke-linejoin="round">
+                    <rect x="2.5" y="7" width="19" height="13" rx="2.5" />
+                    <path d="M9 7V5.5A1.5 1.5 0 0 1 10.5 4h3A1.5 1.5 0 0 1 15 5.5V7" />
+                    <path d="M2.5 12.5h19" />
+                    <path d="M10.5 12.5v1.5h3v-1.5" />
+                  </svg>
+                </span>
+                <h3 data-i18n="service.portfolio.title">Portfolio Websites</h3>
+                <p data-i18n="service.portfolio.copy">Showcase your work and expertise in a polished, easy-to-update
+                  website that helps potential clients
+                  understand your value.</p>
+              </article>
+            </li>
+          </ol>
+        </div>
+      </div>
+
+      <!-- Previous Work -->
+      <div class="work-stage" id="workStage">
+        <div id="work" class="section-head work-heading">
+          <div>
+            <p class="eyebrow" data-i18n="work.eyebrow">Portfolio</p>
+            <h3 class="section-title" id="work-title" data-i18n="work.title">Selected Work</h3>
+          </div>
+          <p data-i18n="work.intro">A selection of sites and products I designed and builtâ€”from first pixel to launch.
+          </p>
+        </div>
+
+        <div class="work-grid" id="workGrid" data-reveal-group>
+
+          <article class="project" data-reveal data-url="https://vercel.com" data-shot="">
+            <a class="project-media" href="https://vercel.com" target="_blank" rel="noopener" tabindex="-1"
+              aria-hidden="true">
+              <img src="https://image.thum.io/get/width/1200/crop/750/noanimate/https://vercel.com"
+                alt="Screenshot of the Vercel website" data-i18n-alt="project.vercel.alt" loading="lazy"
+                decoding="async" width="1200" height="750" />
+            </a>
+            <div class="project-body">
+              <h3>Vercel</h3>
+              <p data-i18n="project.vercel.copy">Marketing site and dashboard UIâ€”dark theme, motion system, and a
+                component library built
+                for
+                speed.</p>
+              <ul class="project-tags">
+                <li>Next.js</li>
+                <li data-i18n="tag.designSystem">Design System</li>
+                <li data-i18n="tag.performance">Performance</li>
+              </ul>
+              <a class="project-link" href="https://vercel.com" target="_blank" rel="noopener"><span
+                  data-i18n="project.visit">Visit site</span> <span aria-hidden="true">â†—</span></a>
+            </div>
+          </article>
+
+          <article class="project" data-reveal data-url="https://stripe.com" data-shot="">
+            <a class="project-media" href="https://stripe.com" target="_blank" rel="noopener" tabindex="-1"
+              aria-hidden="true">
+              <img src="https://image.thum.io/get/width/1200/crop/750/noanimate/https://stripe.com"
+                alt="Screenshot of the Stripe website" data-i18n-alt="project.stripe.alt" loading="lazy"
+                decoding="async" width="1200" height="750" />
+            </a>
+            <div class="project-body">
+              <h3>Stripe</h3>
+              <p data-i18n="project.stripe.copy">Product pages with interactive demos, animated gradients, and
+                documentation that stays readable at
+                scale.</p>
+              <ul class="project-tags">
+                <li>React</li>
+                <li data-i18n="tag.animation">Animation</li>
+                <li data-i18n="tag.accessibility">Accessibility</li>
+              </ul>
+              <a class="project-link" href="https://stripe.com" target="_blank" rel="noopener"><span
+                  data-i18n="project.visit">Visit site</span> <span aria-hidden="true">â†—</span></a>
+            </div>
+          </article>
+
+          <article class="project" data-reveal data-url="https://linear.app" data-shot="">
+            <a class="project-media" href="https://linear.app" target="_blank" rel="noopener" tabindex="-1"
+              aria-hidden="true">
+              <img src="https://image.thum.io/get/width/1200/crop/750/noanimate/https://linear.app"
+                alt="Screenshot of the Linear website" data-i18n-alt="project.linear.alt" loading="lazy"
+                decoding="async" width="1200" height="750" />
+            </a>
+            <div class="project-body">
+              <h3>Linear</h3>
+              <p data-i18n="project.linear.copy">App interface workâ€”keyboard-first flows, crisp typography, and state
+                handling that never
+                feels
+                heavy.</p>
+              <ul class="project-tags">
+                <li>TypeScript</li>
+                <li data-i18n="tag.webApp">Web App</li>
+                <li data-i18n="tag.ui">UI</li>
+              </ul>
+              <a class="project-link" href="https://linear.app" target="_blank" rel="noopener"><span
+                  data-i18n="project.visit">Visit site</span> <span aria-hidden="true">â†—</span></a>
+            </div>
+          </article>
+
+          <article class="project" data-reveal data-url="https://www.figma.com" data-shot="">
+            <a class="project-media" href="https://www.figma.com" target="_blank" rel="noopener" tabindex="-1"
+              aria-hidden="true">
+              <img src="https://image.thum.io/get/width/1200/crop/750/noanimate/https://www.figma.com"
+                alt="Screenshot of the Figma website" data-i18n-alt="project.figma.alt" loading="lazy" decoding="async"
+                width="1200" height="750" />
+            </a>
+            <div class="project-body">
+              <h3>Figma</h3>
+              <p data-i18n="project.figma.copy">Landing pages and feature launchesâ€”pixel-accurate builds handed off
+                straight from design
+                files.</p>
+              <ul class="project-tags">
+                <li>HTML/CSS</li>
+                <li>Figma</li>
+                <li data-i18n="tag.seo">SEO</li>
+              </ul>
+              <a class="project-link" href="https://www.figma.com" target="_blank" rel="noopener"><span
+                  data-i18n="project.visit">Visit site</span> <span aria-hidden="true">â†—</span></a>
+            </div>
+          </article>
+
+          <article class="project" data-reveal data-url="https://tailwindcss.com" data-shot="">
+            <a class="project-media" href="https://tailwindcss.com" target="_blank" rel="noopener" tabindex="-1"
+              aria-hidden="true">
+              <img src="https://image.thum.io/get/width/1200/crop/750/noanimate/https://tailwindcss.com"
+                alt="Screenshot of the Tailwind CSS website" data-i18n-alt="project.tailwind.alt" loading="lazy"
+                decoding="async" width="1200" height="750" />
+            </a>
+            <div class="project-body">
+              <h3>Tailwind CSS</h3>
+              <p data-i18n="project.tailwind.copy">Docs and marketing buildâ€”responsive layouts, dark mode, and a
+                search
+                experience that stays
+                fast.</p>
+              <ul class="project-tags">
+                <li>Tailwind</li>
+                <li data-i18n="tag.docs">Docs</li>
+                <li data-i18n="tag.responsive">Responsive</li>
+              </ul>
+              <a class="project-link" href="https://tailwindcss.com" target="_blank" rel="noopener"><span
+                  data-i18n="project.visit">Visit site</span> <span aria-hidden="true">â†—</span></a>
+            </div>
+          </article>
+
+          <article class="project" data-reveal data-url="https://www.raycast.com" data-shot="">
+            <a class="project-media" href="https://www.raycast.com" target="_blank" rel="noopener" tabindex="-1"
+              aria-hidden="true">
+              <img src="https://image.thum.io/get/width/1200/crop/750/noanimate/https://www.raycast.com"
+                alt="Screenshot of the Raycast website" data-i18n-alt="project.raycast.alt" loading="lazy"
+                decoding="async" width="1200" height="750" />
+            </a>
+            <div class="project-body">
+              <h3>Raycast</h3>
+              <p data-i18n="project.raycast.copy">Product site with rich visuals and micro-interactionsâ€”tuned for Core
+                Web Vitals on every
+                device.</p>
+              <ul class="project-tags">
+                <li>JavaScript</li>
+                <li data-i18n="tag.motion">Motion</li>
+                <li data-i18n="tag.coreWebVitals">Core Web Vitals</li>
+              </ul>
+              <a class="project-link" href="https://www.raycast.com" target="_blank" rel="noopener"><span
+                  data-i18n="project.visit">Visit site</span> <span aria-hidden="true">â†—</span></a>
+            </div>
+          </article>
+        </div>
+
+        <div class="work-pagination" id="workPagination" role="tablist" aria-label="Project navigation"
+          data-i18n-aria="work.pagination"></div>
+      </div>
+
+      <!-- Product storyline -->
+      <section class="storyline" id="storyline" aria-labelledby="storyline-title">
+        <div class="storyline-heading">
+          <p class="storyline-eyebrow" data-i18n="story.eyebrow">HOW I BUILD / THE PROCESS</p>
+          <div class="storyline-heading-row">
+            <h2 class="section-title" id="storyline-title" data-i18n="story.title">How I Build Websites</h2>
+            <p class="storyline-intro" data-i18n="story.intro">A clear, collaborative process—from the first
+              conversation through launch and handoff.</p>
+          </div>
+          <div class="storyline-meta">
+            <span class="storyline-period" data-i18n="story.stages">5 CORE STAGES</span>
+            <span class="storyline-scroll-hint" data-i18n="story.scroll">SCROLL THROUGH THE PROCESS</span>
+          </div>
+        </div>
+
+        <div class="storyline-viewport" data-storyline-viewport tabindex="0" role="region"
+          aria-label="Website development process" data-i18n-aria="story.region">
+          <ol class="storyline-track" data-storyline-track>
+            <li class="storyline-item">
+              <article class="storyline-card">
+                <span class="storyline-index">01 <i>/</i> 05</span>
+                <h3 class="storyline-stage" data-i18n="step.discovery.title">Discovery &amp; Analysis</h3>
+                <p data-i18n="step.discovery.description">We clarify your goals, audience, content, and technical needs
+                  before work begins.
+                </p>
+              </article>
+              <span class="storyline-node" aria-hidden="true"></span>
+            </li>
+            <li class="storyline-item">
+              <article class="storyline-card">
+                <span class="storyline-index">02 <i>/</i> 05</span>
+                <h3 class="storyline-stage" data-i18n="step.plan.title">Plan &amp; Design</h3>
+                <p data-i18n="step.plan.description">We map the site structure and user flow, then shape a responsive
+                  visual direction.
+                </p>
+              </article>
+              <span class="storyline-node" aria-hidden="true"></span>
+            </li>
+            <li class="storyline-item">
+              <article class="storyline-card">
+                <span class="storyline-index">03 <i>/</i> 05</span>
+                <h3 class="storyline-stage" data-i18n="step.build.title">Build</h3>
+                <p data-i18n="step.build.description">We turn the approved plan into responsive pages with clean,
+                  accessible code.</p>
+              </article>
+              <span class="storyline-node" aria-hidden="true"></span>
+            </li>
+            <li class="storyline-item">
+              <article class="storyline-card">
+                <span class="storyline-index">04 <i>/</i> 05</span>
+                <h3 class="storyline-stage" data-i18n="step.optimize.title">Test &amp; Optimize</h3>
+                <p data-i18n="step.optimize.description">We test across devices, fix issues, and refine speed,
+                  accessibility, and SEO.</p>
+              </article>
+              <span class="storyline-node" aria-hidden="true"></span>
+            </li>
+            <li class="storyline-item">
+              <article class="storyline-card">
+                <span class="storyline-index">05 <i>/</i> 05</span>
+                <h3 class="storyline-stage" data-i18n="step.launch.title">Launch</h3>
+                <p data-i18n="step.launch.description">Deploy, monitor, and hand over documentation you can actually
+                  use.
+                </p>
+              </article>
+              <span class="storyline-node" aria-hidden="true"></span>
+            </li>
+          </ol>
+          <div class="storyline-progress" aria-hidden="true"><span data-storyline-progress></span></div>
+        </div>
+      </section>
+
+      <!-- Skills ticker -->
+      <section id="toolbox" class="toolbox" aria-labelledby="toolbox-title">
+        <div class="toolbox-intro">
+          <div>
+
+            <h2 class="section-title" id="toolbox-title" data-i18n="skills.title">My Skills &amp; Tech Stack</h2>
+          </div>
+          <p data-i18n="skills.intro">The technologies I use to design, build, and ship fast, accessible web
+            experiences.</p>
+        </div>
+        <div class="toolbox-stage" data-toolbox-stage aria-label="Skills and technologies" data-i18n-aria="skills.list">
+          <div class="toolbox-track">
+            <ul class="toolbox-group" aria-label="Skills and technologies" data-i18n-aria="skills.list">
+              <li class="toolbox-item">
+                <span class="toolbox-badge"><span class="toolbox-logo" aria-hidden="true"><svg viewBox="0 0 40 40">
+                      <path fill="currentColor" d="M7 4h26l-2.4 27L20 36 9.4 31 7 4Z" />
+                      <path fill="#11131b"
+                        d="m13 11 1.1 10h11.5l-.4 4.2-5.2 1.5-5.1-1.5-.3-3h-4l.6 6 8.8 2.5 8.8-2.5 1.2-11H17.7l-.4-2.2h13.3l.4-4H13Z" />
+                    </svg></span>
+                  <span class="toolbox-label">HTML</span></span>
+              </li>
+              <li class="toolbox-item">
+                <span class="toolbox-badge"><span class="toolbox-logo" aria-hidden="true"><svg viewBox="0 0 40 40">
+                      <path fill="currentColor" d="M7 4h26l-2.4 27L20 36 9.4 31 7 4Z" />
+                      <path fill="#11131b"
+                        d="m12 11 .4 4h14l-.4 4H13l1.2 11 5.8 1.7 5.8-1.7.7-7h-4l-.3 3.7-2.2.6-2.3-.6-.3-3.7h12l1.2-12H12Z" />
+                    </svg></span>
+                  <span class="toolbox-label">CSS</span></span>
+              </li>
+              <li class="toolbox-item">
+                <span class="toolbox-badge"><span class="toolbox-logo" aria-hidden="true"><svg viewBox="0 0 40 40">
+                      <rect x="3" y="3" width="34" height="34" rx="5" fill="currentColor" />
+                      <path fill="#171717"
+                        d="M21 28.3c.7 1.2 1.5 1.8 2.8 1.8 1.2 0 1.9-.6 1.9-1.5 0-1-.8-1.4-2.2-2l-.8-.3c-2.3-1-3.8-2.2-3.8-4.8 0-2.4 1.8-4.2 4.7-4.2 2 0 3.5.7 4.5 2.6l-2.5 1.6c-.6-1-1-1.4-2-1.4-.9 0-1.4.6-1.4 1.3 0 .9.5 1.3 1.8 1.8l.8.4c2.7 1.1 4.2 2.3 4.2 5 0 2.9-2.2 4.5-5.2 4.5-2.9 0-4.8-1.4-5.7-3.4l2.9-1.4Z" />
+                      <path fill="#171717"
+                        d="M10 28.5c.6 1 1.1 1.8 2.4 1.8 1.2 0 1.9-.5 1.9-2.2V17.5h3.4v10.7c0 3.5-2 5.1-5.1 5.1-2.7 0-4.3-1.3-5.1-3.1l2.5-1.7Z" />
+                    </svg></span>
+                  <span class="toolbox-label">JavaScript</span></span>
+              </li>
+              <li class="toolbox-item">
+                <span class="toolbox-badge"><span class="toolbox-logo" aria-hidden="true"><svg viewBox="0 0 40 40"
+                      fill="none" stroke="currentColor" stroke-width="2">
+                      <ellipse cx="20" cy="20" rx="17" ry="7" />
+                      <ellipse cx="20" cy="20" rx="17" ry="7" transform="rotate(60 20 20)" />
+                      <ellipse cx="20" cy="20" rx="17" ry="7" transform="rotate(120 20 20)" />
+                      <circle cx="20" cy="20" r="2.5" fill="currentColor" stroke="none" />
+                    </svg></span>
+                  <span class="toolbox-label">React</span></span>
+              </li>
+              <li class="toolbox-item">
+                <span class="toolbox-badge"><span class="toolbox-logo" aria-hidden="true"><svg viewBox="0 0 40 40">
+                      <path fill="currentColor"
+                        d="m20 2 16 9v18l-16 9-16-9V11l16-9Zm0 4.6L8 13.3v13.4l12 6.7 12-6.7V13.3L20 6.6Z" /><text
+                        x="20" y="24" text-anchor="middle" fill="currentColor" font-size="11"
+                        font-weight="700">JS</text>
+                    </svg></span>
+                  <span class="toolbox-label">Node.js</span></span>
+              </li>
+              <li class="toolbox-item">
+                <span class="toolbox-badge"><span class="toolbox-logo" aria-hidden="true"><svg viewBox="0 0 40 40"
+                      fill="none" stroke="currentColor" stroke-width="3.3" stroke-linecap="round"
+                      stroke-linejoin="round">
+                      <circle cx="10" cy="9" r="4" fill="#11131b" />
+                      <circle cx="30" cy="31" r="4" fill="#11131b" />
+                      <path d="M10 13v8c0 5 4 8 10 8h6M10 20c0-5 4-8 10-8h6" />
+                      <circle cx="30" cy="12" r="4" fill="#11131b" />
+                    </svg></span>
+                  <span class="toolbox-label">Git</span></span>
+              </li>
+              <li class="toolbox-item">
+                <span class="toolbox-badge"><span class="toolbox-logo" aria-hidden="true"><svg viewBox="0 0 40 40">
+                      <path fill="#f24e1e" d="M14 3h7v11h-7a5.5 5.5 0 1 1 0-11Z" />
+                      <path fill="#ff7262" d="M21 3h7a5.5 5.5 0 1 1 0 11h-7V3Z" />
+                      <path fill="#a259ff" d="M14 14h7v11h-7a5.5 5.5 0 1 1 0-11Z" />
+                      <circle cx="25.5" cy="19.5" r="5.5" fill="#1abcfe" />
+                      <path fill="#0acf83" d="M14 25h7v5.5a5.5 5.5 0 1 1-7-5.5Z" />
+                    </svg></span>
+                  <span class="toolbox-label">Figma</span></span>
+              </li>
+              <li class="toolbox-item">
+                <span class="toolbox-badge"><span class="toolbox-logo" aria-hidden="true"><svg viewBox="0 0 40 40">
+                      <defs>
+                        <linearGradient id="vite-mark" x1="0" y1="0" x2="1" y2="1">
+                          <stop stop-color="#43d6ff" />
+                          <stop offset="1" stop-color="#a65bff" />
+                        </linearGradient>
+                      </defs>
+                      <path fill="url(#vite-mark)" d="M3 8 19 36 37 8 20 11 3 8Z" />
+                      <path fill="#ffe45e" d="m23 4-9 18h6l-1 10 9-18h-6l1-10Z" />
+                    </svg></span>
+                  <span class="toolbox-label">Vite</span></span>
+              </li>
+              <li class="toolbox-item">
+                <span class="toolbox-badge"><span class="toolbox-logo" aria-hidden="true"><svg viewBox="0 0 40 40"
+                      fill="none" stroke="currentColor" stroke-width="2.4">
+                      <circle cx="8" cy="20" r="4" />
+                      <circle cx="31" cy="9" r="4" />
+                      <circle cx="31" cy="31" r="4" />
+                      <path d="M12 20h8c6 0 7-7 11-11M20 20c6 0 7 7 11 11" />
+                    </svg></span>
+                  <span class="toolbox-label">REST APIs</span></span>
+              </li>
+              <li class="toolbox-item">
+                <span class="toolbox-badge"><span class="toolbox-logo" aria-hidden="true"><svg viewBox="0 0 40 40"
+                      fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"
+                      stroke-linejoin="round">
+                      <circle cx="20" cy="7" r="3.5" fill="currentColor" />
+                      <path d="M20 13v11m-8-7 8 3 8-3M20 24l-6 10m6-10 6 10" />
+                      <circle cx="20" cy="20" r="17" />
+                    </svg></span>
+                  <span class="toolbox-label" data-i18n="skills.accessibility">Accessibility</span></span>
+              </li>
+              <li class="toolbox-item">
+                <span class="toolbox-badge"><span class="toolbox-logo" aria-hidden="true"><svg viewBox="0 0 40 40">
+                      <circle cx="20" cy="20" r="18" fill="#21759b" />
+                      <text x="20" y="27" text-anchor="middle" fill="#fff" font-size="20" font-family="serif"
+                        font-weight="700">W</text>
+                    </svg></span>
+                  <span class="toolbox-label">WordPress</span></span>
+              </li>
+              <li class="toolbox-item">
+                <span class="toolbox-badge"><span class="toolbox-logo" aria-hidden="true"><svg viewBox="0 0 40 40">
+                      <path fill="#96588a" d="M5 13h30l-2.5 20h-25L5 13Z" />
+                      <path fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round"
+                        d="M12 13V9a8 8 0 0 1 16 0v4" />
+                      <text x="20" y="27" text-anchor="middle" fill="#fff" font-size="10" font-weight="700">WC</text>
+                    </svg></span>
+                  <span class="toolbox-label">WooCommerce</span></span>
+              </li>
+              <li class="toolbox-item">
+                <span class="toolbox-badge"><span class="toolbox-logo" aria-hidden="true"><svg viewBox="0 0 40 40">
+                      <path fill="#95bf47" d="m9 12 2-6h18l2 6 3 23H6l3-23Z" />
+                      <path fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round"
+                        d="M13 12V9a7 7 0 0 1 14 0v3" />
+                      <text x="20" y="28" text-anchor="middle" fill="#fff" font-size="17" font-weight="700">S</text>
+                    </svg></span>
+                  <span class="toolbox-label">Shopify</span></span>
+              </li>
+            </ul>
+            <ul class="toolbox-group" aria-hidden="true">
+              <li class="toolbox-item">
+                <span class="toolbox-badge"><span class="toolbox-logo" aria-hidden="true"><svg viewBox="0 0 40 40">
+                      <path fill="currentColor" d="M7 4h26l-2.4 27L20 36 9.4 31 7 4Z" />
+                      <path fill="#11131b"
+                        d="m13 11 1.1 10h11.5l-.4 4.2-5.2 1.5-5.1-1.5-.3-3h-4l.6 6 8.8 2.5 8.8-2.5 1.2-11H17.7l-.4-2.2h13.3l.4-4H13Z" />
+                    </svg></span>
+                  <span class="toolbox-label">HTML</span></span>
+              </li>
+              <li class="toolbox-item">
+                <span class="toolbox-badge"><span class="toolbox-logo" aria-hidden="true"><svg viewBox="0 0 40 40">
+                      <path fill="currentColor" d="M7 4h26l-2.4 27L20 36 9.4 31 7 4Z" />
+                      <path fill="#11131b"
+                        d="m12 11 .4 4h14l-.4 4H13l1.2 11 5.8 1.7 5.8-1.7.7-7h-4l-.3 3.7-2.2.6-2.3-.6-.3-3.7h12l1.2-12H12Z" />
+                    </svg></span>
+                  <span class="toolbox-label">CSS</span></span>
+              </li>
+              <li class="toolbox-item">
+                <span class="toolbox-badge"><span class="toolbox-logo" aria-hidden="true"><svg viewBox="0 0 40 40">
+                      <rect x="3" y="3" width="34" height="34" rx="5" fill="currentColor" />
+                      <path fill="#171717"
+                        d="M21 28.3c.7 1.2 1.5 1.8 2.8 1.8 1.2 0 1.9-.6 1.9-1.5 0-1-.8-1.4-2.2-2l-.8-.3c-2.3-1-3.8-2.2-3.8-4.8 0-2.4 1.8-4.2 4.7-4.2 2 0 3.5.7 4.5 2.6l-2.5 1.6c-.6-1-1-1.4-2-1.4-.9 0-1.4.6-1.4 1.3 0 .9.5 1.3 1.8 1.8l.8.4c2.7 1.1 4.2 2.3 4.2 5 0 2.9-2.2 4.5-5.2 4.5-2.9 0-4.8-1.4-5.7-3.4l2.9-1.4Z" />
+                      <path fill="#171717"
+                        d="M10 28.5c.6 1 1.1 1.8 2.4 1.8 1.2 0 1.9-.5 1.9-2.2V17.5h3.4v10.7c0 3.5-2 5.1-5.1 5.1-2.7 0-4.3-1.3-5.1-3.1l2.5-1.7Z" />
+                    </svg></span>
+                  <span class="toolbox-label">JavaScript</span></span>
+              </li>
+              <li class="toolbox-item">
+                <span class="toolbox-badge"><span class="toolbox-logo" aria-hidden="true"><svg viewBox="0 0 40 40"
+                      fill="none" stroke="currentColor" stroke-width="2">
+                      <ellipse cx="20" cy="20" rx="17" ry="7" />
+                      <ellipse cx="20" cy="20" rx="17" ry="7" transform="rotate(60 20 20)" />
+                      <ellipse cx="20" cy="20" rx="17" ry="7" transform="rotate(120 20 20)" />
+                      <circle cx="20" cy="20" r="2.5" fill="currentColor" stroke="none" />
+                    </svg></span>
+                  <span class="toolbox-label">React</span></span>
+              </li>
+              <li class="toolbox-item">
+                <span class="toolbox-badge"><span class="toolbox-logo" aria-hidden="true"><svg viewBox="0 0 40 40">
+                      <path fill="currentColor"
+                        d="m20 2 16 9v18l-16 9-16-9V11l16-9Zm0 4.6L8 13.3v13.4l12 6.7 12-6.7V13.3L20 6.6Z" /><text
+                        x="20" y="24" text-anchor="middle" fill="currentColor" font-size="11"
+                        font-weight="700">JS</text>
+                    </svg></span>
+                  <span class="toolbox-label">Node.js</span></span>
+              </li>
+              <li class="toolbox-item">
+                <span class="toolbox-badge"><span class="toolbox-logo" aria-hidden="true"><svg viewBox="0 0 40 40"
+                      fill="none" stroke="currentColor" stroke-width="3.3" stroke-linecap="round"
+                      stroke-linejoin="round">
+                      <circle cx="10" cy="9" r="4" fill="#11131b" />
+                      <circle cx="30" cy="31" r="4" fill="#11131b" />
+                      <path d="M10 13v8c0 5 4 8 10 8h6M10 20c0-5 4-8 10-8h6" />
+                      <circle cx="30" cy="12" r="4" fill="#11131b" />
+                    </svg></span>
+                  <span class="toolbox-label">Git</span></span>
+              </li>
+              <li class="toolbox-item">
+                <span class="toolbox-badge"><span class="toolbox-logo" aria-hidden="true"><svg viewBox="0 0 40 40">
+                      <path fill="#f24e1e" d="M14 3h7v11h-7a5.5 5.5 0 1 1 0-11Z" />
+                      <path fill="#ff7262" d="M21 3h7a5.5 5.5 0 1 1 0 11h-7V3Z" />
+                      <path fill="#a259ff" d="M14 14h7v11h-7a5.5 5.5 0 1 1 0-11Z" />
+                      <circle cx="25.5" cy="19.5" r="5.5" fill="#1abcfe" />
+                      <path fill="#0acf83" d="M14 25h7v5.5a5.5 5.5 0 1 1-7-5.5Z" />
+                    </svg></span>
+                  <span class="toolbox-label">Figma</span></span>
+              </li>
+              <li class="toolbox-item">
+                <span class="toolbox-badge"><span class="toolbox-logo" aria-hidden="true"><svg viewBox="0 0 40 40">
+                      <defs>
+                        <linearGradient id="vite-mark" x1="0" y1="0" x2="1" y2="1">
+                          <stop stop-color="#43d6ff" />
+                          <stop offset="1" stop-color="#a65bff" />
+                        </linearGradient>
+                      </defs>
+                      <path fill="url(#vite-mark)" d="M3 8 19 36 37 8 20 11 3 8Z" />
+                      <path fill="#ffe45e" d="m23 4-9 18h6l-1 10 9-18h-6l1-10Z" />
+                    </svg></span>
+                  <span class="toolbox-label">Vite</span></span>
+              </li>
+              <li class="toolbox-item">
+                <span class="toolbox-badge"><span class="toolbox-logo" aria-hidden="true"><svg viewBox="0 0 40 40"
+                      fill="none" stroke="currentColor" stroke-width="2.4">
+                      <circle cx="8" cy="20" r="4" />
+                      <circle cx="31" cy="9" r="4" />
+                      <circle cx="31" cy="31" r="4" />
+                      <path d="M12 20h8c6 0 7-7 11-11M20 20c6 0 7 7 11 11" />
+                    </svg></span>
+                  <span class="toolbox-label">REST APIs</span></span>
+              </li>
+              <li class="toolbox-item">
+                <span class="toolbox-badge"><span class="toolbox-logo" aria-hidden="true"><svg viewBox="0 0 40 40"
+                      fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"
+                      stroke-linejoin="round">
+                      <circle cx="20" cy="7" r="3.5" fill="currentColor" />
+                      <path d="M20 13v11m-8-7 8 3 8-3M20 24l-6 10m6-10 6 10" />
+                      <circle cx="20" cy="20" r="17" />
+                    </svg></span>
+                  <span class="toolbox-label" data-i18n="skills.accessibility">Accessibility</span></span>
+              </li>
+              <li class="toolbox-item">
+                <span class="toolbox-badge"><span class="toolbox-logo" aria-hidden="true"><svg viewBox="0 0 40 40">
+                      <circle cx="20" cy="20" r="18" fill="#21759b" />
+                      <text x="20" y="27" text-anchor="middle" fill="#fff" font-size="20" font-family="serif"
+                        font-weight="700">W</text>
+                    </svg></span>
+                  <span class="toolbox-label">WordPress</span></span>
+              </li>
+              <li class="toolbox-item">
+                <span class="toolbox-badge"><span class="toolbox-logo" aria-hidden="true"><svg viewBox="0 0 40 40">
+                      <path fill="#96588a" d="M5 13h30l-2.5 20h-25L5 13Z" />
+                      <path fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round"
+                        d="M12 13V9a8 8 0 0 1 16 0v4" />
+                      <text x="20" y="27" text-anchor="middle" fill="#fff" font-size="10" font-weight="700">WC</text>
+                    </svg></span>
+                  <span class="toolbox-label">WooCommerce</span></span>
+              </li>
+              <li class="toolbox-item">
+                <span class="toolbox-badge"><span class="toolbox-logo" aria-hidden="true"><svg viewBox="0 0 40 40">
+                      <path fill="#95bf47" d="m9 12 2-6h18l2 6 3 23H6l3-23Z" />
+                      <path fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round"
+                        d="M13 12V9a7 7 0 0 1 14 0v3" />
+                      <text x="20" y="28" text-anchor="middle" fill="#fff" font-size="17" font-weight="700">S</text>
+                    </svg></span>
+                  <span class="toolbox-label">Shopify</span></span>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+      </section>
+
+    </section>
+
+    <section id="contact" class="section wrap contact-section" aria-labelledby="contact-title">
+      <div class="contact-panel">
+        <div class="contact-copy">
+          <p class="eyebrow" data-i18n="contact.eyebrow">Contact</p>
+          <h2 class="section-title" id="contact-title" data-i18n="contact.title">Have a project in mind?</h2>
+          <p data-i18n="contact.copy">Tell me what youâ€™re building. Iâ€™m available to discuss landing pages and
+            WordPress
+            or Shopify stores.</p>
+        </div>
+        <div class="contact-actions" aria-label="Contact options" data-i18n-aria="contact.options">
+          <a class="contact-link" href="https://wa.me/201129114212" target="_blank" rel="noopener noreferrer">
+            <span data-i18n="contact.whatsapp">Message me on WhatsApp</span> <span aria-hidden="true">â†—</span>
+          </a>
+          <a class="contact-link" href="mailto:abdlkayomd@gmail.com" data-i18n="contact.email">Email me</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-inner wrap">
+
+      <p><span data-i18n="footer.rights">&copy; 2026 ABDELKAIOUM. All rights reserved.</span></p>
+      <ul class="social" aria-label="Contact links" data-i18n-aria="footer.contactLinks">
+        <li><a href="https://wa.me/201129114212" target="_blank" rel="noopener noreferrer"
+            data-i18n="contact.whatsappShort">WhatsApp</a></li>
+        <li><a href="mailto:abdlkayomd@gmail.com" data-i18n="contact.emailShort">Email</a></li>
+      </ul>
+    </div>
+  </footer>
+
+  <!-- Localization must initialize before UI scripts read page copy. -->
+  <script src="i18n.js"></script>
+  <!-- Main Script -->
+  <script src="script.js"></script>
+</body>
+
+</html>
